@@ -1,11 +1,14 @@
 ﻿namespace OrderService
 {
+  using System.Collections.Generic;
   using System.ServiceModel;
 
-  [ServiceContract]
+  using DAL.Entities;
+
+  [ServiceContract(Namespace = "http://epam.com/OrdersService")]
   public interface IOrdersService
   {
     [OperationContract]
-    string GetAll();
+    IEnumerable<Order> GetAll();
   }
 }

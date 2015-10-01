@@ -46,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OrderService\OrderService.csproj">
+    <ProjectReference Include="..\OrderService\OrdersService.csproj">
       <Project>{41839a84-4703-4fbb-95c0-c592dc55df0f}</Project>
-      <Name>OrderService</Name>
+      <Name>OrdersService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
