@@ -3,7 +3,6 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
   public class Order
     {
@@ -27,7 +26,6 @@ namespace DAL.Entities
 
         public int? ShipVia { get; set; }
 
-        [Column(TypeName = "money")]
         public decimal? Freight { get; set; }
 
         [StringLength(40)]

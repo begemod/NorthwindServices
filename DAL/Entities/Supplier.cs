@@ -2,7 +2,6 @@ namespace DAL.Entities
 {
   using System.Collections.Generic;
   using System.ComponentModel.DataAnnotations;
-  using System.ComponentModel.DataAnnotations.Schema;
 
   public class Supplier
     {
@@ -44,7 +43,6 @@ namespace DAL.Entities
         [StringLength(24)]
         public string Fax { get; set; }
 
-        [Column(TypeName = "ntext")]
         public string HomePage { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }

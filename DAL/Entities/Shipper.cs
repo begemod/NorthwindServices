@@ -12,7 +12,6 @@ namespace DAL.Entities
 
         public int ShipperID { get; set; }
 
-        [Required]
         [StringLength(40)]
         public string CompanyName { get; set; }
 

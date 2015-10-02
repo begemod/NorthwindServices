@@ -2,7 +2,6 @@ namespace DAL.Entities
 {
   using System.Collections.Generic;
   using System.ComponentModel.DataAnnotations;
-  using System.ComponentModel.DataAnnotations.Schema;
 
   public class Product
     {
@@ -24,7 +23,6 @@ namespace DAL.Entities
         [StringLength(20)]
         public string QuantityPerUnit { get; set; }
 
-        [Column(TypeName = "money")]
         public decimal? UnitPrice { get; set; }
 
         public short? UnitsInStock { get; set; }

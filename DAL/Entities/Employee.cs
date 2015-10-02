@@ -3,7 +3,6 @@ namespace DAL.Entities
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
   public class Employee
     {
@@ -55,10 +54,8 @@ namespace DAL.Entities
         [StringLength(4)]
         public string Extension { get; set; }
 
-        [Column(TypeName = "image")]
         public byte[] Photo { get; set; }
 
-        [Column(TypeName = "ntext")]
         public string Notes { get; set; }
 
         public int? ReportsTo { get; set; }
