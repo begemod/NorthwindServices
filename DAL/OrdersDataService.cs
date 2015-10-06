@@ -2,8 +2,9 @@
 {
   using System.Collections.Generic;
   using DAL.Entities;
+  using DAL.QueryObjects;
 
-  public class OrdersDataService
+    public class OrdersDataService
   {
     private readonly IConnectionFactory connectionFactory;
 
@@ -16,7 +17,8 @@
     {
       using (var connection = this.connectionFactory.Create())
       {
-        return new List<Order>();
+          var orderQueryObject = new OrderQueryObject();
+          return connection.Query<Order>(orderQueryObject.GetAll());
       }
     }
   }
