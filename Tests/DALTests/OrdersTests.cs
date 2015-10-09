@@ -7,15 +7,32 @@
     [TestClass]
     public class OrdersTests
     {
+        private OrdersDataService ordersDataService;
+
+        [TestInitialize]
+        public void ClassInitialize()
+        {
+            var connectionFactory = new NortwindDbConnectionFactoryForTests();
+            this.ordersDataService = new OrdersDataService(connectionFactory);
+        }
+
         [TestMethod]
         public void GetAllTest()
         {
-            var connectionFactory = new NortwindDbConnectionFactoryForTests();
-            var ordersDataSetvice = new OrdersDataService(connectionFactory);
-
-            var allOrders = ordersDataSetvice.GetAll();
+            var allOrders = this.ordersDataService.GetAll();
 
             Assert.IsTrue(allOrders.Any());
+        }
+
+        [TestMethod]
+        public void GetByIdTest()
+        {
+            var allOrders = this.ordersDataService.GetAll();
+            var orderId = allOrders.First().OrderID;
+
+            var orderById = this.ordersDataService.GetById(orderId);
+
+            Assert.IsNotNull(orderById);
         }
     }
 }
