@@ -1,8 +1,7 @@
 ﻿namespace Tests.DALTests
 {
     using System.Linq;
-
-    using DAL;
+    using DAL.DataServices;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -11,8 +10,8 @@
         [TestMethod]
         public void GetAllTest()
         {
-            var connectipnFactory = new NortwindDbConnectionFactoryForTests();
-            var ordersDataSetvice = new OrdersDataService(connectipnFactory);
+            var connectionFactory = new NortwindDbConnectionFactoryForTests();
+            var ordersDataSetvice = new OrdersDataService(connectionFactory);
 
             var allOrders = ordersDataSetvice.GetAll();
 

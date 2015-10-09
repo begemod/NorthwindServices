@@ -55,8 +55,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DALTests\DataAccessLayerTests.cs" />
     <Compile Include="DALTests\OrdersTests.cs" />
+    <Compile Include="DALTests\CategoriesTests.cs" />
     <Compile Include="NortwindDbConnectionFactoryForTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

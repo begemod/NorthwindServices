@@ -9,10 +9,9 @@ namespace DAL.Entities
         {
             this.Products = new HashSet<Product>();
         }
-
+        
         public int CategoryID { get; set; }
 
-        [Required]
         [StringLength(15)]
         public string CategoryName { get; set; }
 

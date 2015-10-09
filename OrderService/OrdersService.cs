@@ -1,23 +1,23 @@
 ﻿namespace OrderService
 {
-  using System.Collections.Generic;
+    using System.Collections.Generic;
+    using DAL;
+    using DAL.DataServices;
+    using DAL.Entities;
 
-  using DAL;
-  using DAL.Entities;
-
-  public class OrdersService : IOrdersService
-  {
-    private readonly OrdersDataService ordersDataService;
-
-    public OrdersService()
+    public class OrdersService : IOrdersService
     {
-      var connectionFactory = new NortwindDbConnectionFactory();
-      this.ordersDataService = new OrdersDataService(connectionFactory);
-    }
+        private readonly OrdersDataService ordersDataService;
 
-    public IEnumerable<Order> GetAll()
-    {
-      return this.ordersDataService.GetAll();
+        public OrdersService()
+        {
+            var connectionFactory = new NortwindDbConnectionFactory();
+            this.ordersDataService = new OrdersDataService(connectionFactory);
+        }
+
+        public IEnumerable<Order> GetAll()
+        {
+            return this.ordersDataService.GetAll();
+        }
     }
-  }
 }
