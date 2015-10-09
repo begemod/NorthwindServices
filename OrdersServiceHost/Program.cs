@@ -14,9 +14,10 @@
             using (host = new ServiceHost(typeof(OrderService.OrdersService)))
             {
                 host.Open();
+
+                Console.ReadLine();
             }
 
-            Console.ReadLine();
             Console.WriteLine("Service closed...");
         }
     }

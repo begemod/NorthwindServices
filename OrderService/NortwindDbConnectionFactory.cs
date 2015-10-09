@@ -1,19 +1,19 @@
 ﻿namespace OrderService
 {
-  using System.Configuration;
-  using System.Data;
-  using System.Data.SqlClient;
-  using DAL;
+    using System.Configuration;
+    using System.Data;
+    using System.Data.SqlClient;
+    using DAL;
 
-  public class NortwindDbConnectionFactory : IConnectionFactory
-  {
-    public IDbConnection Create()
+    public class NortwindDbConnectionFactory : IConnectionFactory
     {
-      var connectionString = ConfigurationManager.ConnectionStrings["NortwindDBConnection"].ConnectionString;
+        public IDbConnection Create()
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["NortwindDBConnection"].ConnectionString;
 
-      var connection = new SqlConnection(connectionString);
+            var connection = new SqlConnection(connectionString);
 
-      return connection;
+            return connection;
+        }
     }
-  }
 }
