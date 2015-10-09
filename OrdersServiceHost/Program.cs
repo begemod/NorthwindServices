@@ -1,33 +1,23 @@
 ﻿namespace OrdersServiceHost
 {
-  using System;
-  using System.ServiceModel;
+    using System;
+    using System.ServiceModel;
 
-  public class Program
-  {
-    private static ServiceHost host;
-
-    public static void Main(string[] args)
+    public class Program
     {
-      Console.WriteLine("Service started...");
+        private static ServiceHost host;
 
-      try
-      {
-        host = new ServiceHost(typeof(OrderService.OrdersService));
-
-        host.Open();
-
-        Console.ReadLine();
-      }
-      finally
-      {
-        if (host != null)
+        public static void Main(string[] args)
         {
-          host.Close();
-        }
-      }
+            Console.WriteLine("Service started...");
 
-      Console.WriteLine("Service closed...");
+            using (host = new ServiceHost(typeof(OrderService.OrdersService)))
+            {
+                host.Open();
+            }
+
+            Console.ReadLine();
+            Console.WriteLine("Service closed...");
+        }
     }
-  }
 }
