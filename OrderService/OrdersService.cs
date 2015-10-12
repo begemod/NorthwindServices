@@ -1,9 +1,13 @@
 ﻿namespace OrderService
 {
     using System.Collections.Generic;
+    using System.Linq;
+
     using AutoMapper;
     using DAL.DataServices;
     using DAL.Entities;
+
+    using OrderService.DTO;
 
     public class OrdersService : IOrdersService
     {
@@ -14,18 +18,23 @@
             var connectionFactory = new NortwindDbConnectionFactory();
             this.ordersDataService = new OrdersDataService(connectionFactory);
 
-            this.ConfigureMapping();
+            this.ConfigureInMapping();
+            this.ConfigureOutMapping();
         }
 
         public IEnumerable<OrderDTO> GetAll()
         {
-            var orderDTO = new List<OrderDTO>();
-            var allOrders = this.ordersDataService.GetAll();
+            var allOrders = this.ordersDataService.GetAll().Select(Mapper.Map<Order, OrderDTO>);
 
-            return Mapper.Map(allOrders, orderDTO);
+            return allOrders;
         }
 
-        private void ConfigureMapping()
+        private void ConfigureInMapping()
+        {
+            Mapper.CreateMap<OrderDTO, Order>();
+        }
+
+        private void ConfigureOutMapping()
         {
             Mapper.CreateMap<Order, OrderDTO>();
         }

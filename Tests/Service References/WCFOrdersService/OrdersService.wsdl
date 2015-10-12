@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="http://epam.com/OrdersService/Imports">
       <xsd:import schemaLocation="http://localhost:40000/OrdersService?xsd=xsd0" namespace="http://epam.com/OrdersService" />
       <xsd:import schemaLocation="http://localhost:40000/OrdersService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:40000/OrdersService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DAL.Entities" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IOrdersService_GetAll_InputMessage">
@@ -12,20 +13,10 @@
   <wsdl:message name="IOrdersService_GetAll_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrdersService_Test_InputMessage">
-    <wsdl:part name="parameters" element="tns:Test" />
-  </wsdl:message>
-  <wsdl:message name="IOrdersService_Test_OutputMessage">
-    <wsdl:part name="parameters" element="tns:TestResponse" />
-  </wsdl:message>
   <wsdl:portType name="IOrdersService">
     <wsdl:operation name="GetAll">
       <wsdl:input wsaw:Action="http://epam.com/OrdersService/IOrdersService/GetAll" message="tns:IOrdersService_GetAll_InputMessage" />
       <wsdl:output wsaw:Action="http://epam.com/OrdersService/IOrdersService/GetAllResponse" message="tns:IOrdersService_GetAll_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Test">
-      <wsdl:input wsaw:Action="http://epam.com/OrdersService/IOrdersService/Test" message="tns:IOrdersService_Test_InputMessage" />
-      <wsdl:output wsaw:Action="http://epam.com/OrdersService/IOrdersService/TestResponse" message="tns:IOrdersService_Test_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-
     using DAL.Entities;
     using DAL.QueryObjects;
 
@@ -27,7 +26,26 @@
             using (var connection = this.GetConnection())
             {
                 var orderQueryObject = new OrderQueryObject();
-                return connection.Query<Order>(orderQueryObject.GetById(orderId)).SingleOrDefault();
+                var order = connection.Query<Order>(orderQueryObject.GetById(orderId)).SingleOrDefault();
+
+                var orderDetailQueryObject = new OrderDetailQueryObject();
+                var orderDetails = connection.Query<OrderDetail, Product, OrderDetail>(
+                    orderDetailQueryObject.GetByOrderId(orderId),
+                    (o, p) => 
+                    {
+                        o.Product = p;
+                        return o;
+                    },
+                    "ProductID").ToList();
+
+                foreach (var orderDetail in orderDetails)
+                {
+                    orderDetail.Order = order;
+                }
+
+                order.OrderDetails = orderDetails;
+
+                return order;
             }
         }
     }

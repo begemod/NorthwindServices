@@ -1,10 +1,8 @@
 ﻿namespace Tests.WCFServiceTests
 {
     using System.Linq;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using Tests.ServiceReference1;
+    using Tests.WCFOrdersService;
 
     [TestClass]
     public class OrdersServiceTests

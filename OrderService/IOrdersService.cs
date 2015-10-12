@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.ServiceModel;
 
+    using OrderService.DTO;
+
     [ServiceContract(Namespace = "http://epam.com/OrdersService")]
     public interface IOrdersService
     {

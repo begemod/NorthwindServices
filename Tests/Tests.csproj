@@ -63,7 +63,7 @@
     <Compile Include="DALTests\CategoriesTests.cs" />
     <Compile Include="NortwindDbConnectionFactoryForTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\WCFOrdersService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -81,19 +81,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\ServiceReference1\OrdersService.wsdl" />
-    <None Include="Service References\ServiceReference1\OrdersService.xsd">
+    <None Include="Service References\WCFOrdersService\OrdersService.wsdl" />
+    <None Include="Service References\WCFOrdersService\OrdersService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\OrdersService1.wsdl" />
-    <None Include="Service References\ServiceReference1\OrdersService1.xsd">
+    <None Include="Service References\WCFOrdersService\OrdersService1.wsdl" />
+    <None Include="Service References\WCFOrdersService\OrdersService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\Tests.ServiceReference1.OrderDTO.datasource">
+    <None Include="Service References\WCFOrdersService\OrdersService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFOrdersService\Tests.WCFOrdersService.OrderDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -101,16 +101,19 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\OrdersService.disco" />
+    <WCFMetadataStorage Include="Service References\WCFOrdersService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\WCFOrdersService\OrdersService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\WCFOrdersService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\WCFOrdersService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WCFOrdersService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

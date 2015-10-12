@@ -61,7 +61,7 @@
     <Compile Include="DataService.cs" />
     <Compile Include="IOrdersService.cs" />
     <Compile Include="NortwindDbConnectionFactory.cs" />
-    <Compile Include="OrderDTO.cs" />
+    <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="OrdersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

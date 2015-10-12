@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://epam.com/OrdersService" elementFormDefault="qualified" targetNamespace="http://epam.com/OrdersService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:40000/OrdersService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DAL.Entities" />
+  <xs:element name="GetAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllResult" nillable="true" type="tns:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfOrderDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderDTO" nillable="true" type="tns:OrderDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderDTO" nillable="true" type="tns:ArrayOfOrderDTO" />
+  <xs:complexType name="OrderDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Freight" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OrderDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DAL.Entities" minOccurs="0" name="OrderDetails" nillable="true" type="q1:ArrayOfOrderDetail" />
+      <xs:element minOccurs="0" name="OrderId" type="xs:int" />
+      <xs:element minOccurs="0" name="RequiredDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ShipAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipPostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipRegion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipVia" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippedDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderDTO" nillable="true" type="tns:OrderDTO" />
+</xs:schema>
