@@ -5,7 +5,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class OrdersTests
+    public class OrdersDataTests
     {
         private OrdersDataService ordersDataService;
 

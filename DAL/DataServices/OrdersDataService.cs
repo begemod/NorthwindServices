@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using DAL.Entities;
+    using DAL.Infrastructure;
     using DAL.QueryObjects;
 
     public class OrdersDataService : BaseDataService
@@ -28,6 +29,11 @@
                 var orderQueryObject = new OrderQueryObject();
                 var order = connection.Query<Order>(orderQueryObject.GetById(orderId)).SingleOrDefault();
 
+                if (order == null)
+                {
+                    throw new EntityNotFoundException("Order by defined id fas not found.", orderId.ToString());
+                }
+
                 var orderDetailQueryObject = new OrderDetailQueryObject();
                 var orderDetails = connection.Query<OrderDetail, Product, OrderDetail>(
                     orderDetailQueryObject.GetByOrderId(orderId),
@@ -37,11 +43,6 @@
                         return o;
                     },
                     "ProductID").ToList();
-
-                foreach (var orderDetail in orderDetails)
-                {
-                    orderDetail.Order = order;
-                }
 
                 order.OrderDetails = orderDetails;
 

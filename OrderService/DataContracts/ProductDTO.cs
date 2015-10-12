@@ -1,41 +1,38 @@
-namespace DAL.Entities
+﻿namespace OrderService.DataContracts
 {
-  using System.Collections.Generic;
-  using System.ComponentModel.DataAnnotations;
+    using System.Runtime.Serialization;
 
-  public class Product
+    [DataContract(Namespace = "http://epam.com/OrdersService")]
+    public class ProductDTO
     {
-        public Product()
-        {
-            this.OrderDetails = new HashSet<OrderDetail>();
-        }
-
+        [DataMember]
         public int ProductID { get; set; }
 
-        [StringLength(40)]
+        [DataMember]
         public string ProductName { get; set; }
 
+        [DataMember]
         public int? SupplierID { get; set; }
 
+        [DataMember]
         public int? CategoryID { get; set; }
 
-        [StringLength(20)]
+        [DataMember]
         public string QuantityPerUnit { get; set; }
 
+        [DataMember]
         public decimal? UnitPrice { get; set; }
 
+        [DataMember]
         public short? UnitsInStock { get; set; }
 
+        [DataMember]
         public short? UnitsOnOrder { get; set; }
 
+        [DataMember]
         public short? ReorderLevel { get; set; }
 
+        [DataMember]
         public bool Discontinued { get; set; }
-
-        public virtual Category Category { get; set; }
-
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-
-        public virtual Supplier Supplier { get; set; }
     }
 }

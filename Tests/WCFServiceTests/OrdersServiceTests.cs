@@ -2,19 +2,44 @@
 {
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Tests.WCFOrdersService;
 
     [TestClass]
     public class OrdersServiceTests
     {
-        [TestMethod]
         public void GetAllTest()
         {
-            var client = new OrdersServiceClient();
+            var ordersService = new OrderService.OrdersService();
 
-            var allOrders = client.GetAll();
+            var allOrders = ordersService.GetAll();
 
             Assert.IsTrue(allOrders != null && allOrders.Any());
+        }
+
+        [TestMethod]
+        public void GetByIdTest()
+        {
+            var ordersService = new OrderService.OrdersService();
+
+            var allOrders = ordersService.GetAll();
+
+            var orderId = allOrders.First().OrderId;
+
+            var orderById = ordersService.GetById(orderId);
+
+            Assert.IsNotNull(orderById);
+        }
+
+        [TestMethod]
+        public void AddNewOrderTest()
+        {
+            var newOrder = new WCFOrdersService.OrderDTO
+                               {
+                                   OrderId = 1
+                               };
+
+            var orderDetails = new[] { new WCFOrdersService.OrderDetailDTO() };
+
+            newOrder.OrderDetails = orderDetails;
         }
     }
 }
