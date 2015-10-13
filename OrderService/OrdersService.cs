@@ -5,6 +5,7 @@
     using AutoMapper;
     using DAL.DataServices;
     using DAL.Entities;
+    using DAL.Infrastructure;
     using OrderService.DataContracts;
 
     public class OrdersService : IOrdersService
@@ -22,9 +23,7 @@
 
         public IEnumerable<OrderDTO> GetAll()
         {
-            var allOrders = this.ordersDataService.GetAll().Select(Mapper.Map<Order, OrderDTO>);
-
-            return allOrders;
+            return this.ordersDataService.GetAll().Select(Mapper.Map<Order, OrderDTO>);
         }
 
         public OrderDTO GetById(int orderId)
@@ -43,7 +42,7 @@
 
         public void DeleteOrder(int orderId)
         {
-            
+            this.ordersDataService.DeleteOrder(orderId);
         }
 
         private void ConfigureInMapping()

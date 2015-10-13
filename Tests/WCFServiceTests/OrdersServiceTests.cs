@@ -32,14 +32,6 @@
         [TestMethod]
         public void AddNewOrderTest()
         {
-            var newOrder = new WCFOrdersService.OrderDTO
-                               {
-                                   OrderId = 1
-                               };
-
-            var orderDetails = new[] { new WCFOrdersService.OrderDetailDTO() };
-
-            newOrder.OrderDetails = orderDetails;
         }
     }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8fd8f275-4917-4615-8753-e86d14294a52" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/WCFServices/Categories.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Categories.disco" MetadataType="Disco" ID="3c104a84-017e-4082-a9bb-e5a50461a418" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?disco" />
+    <MetadataFile FileName="CategoriesService.wsdl" MetadataType="Wsdl" ID="66af1326-57e8-45b0-8e0e-f959f9192f20" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?wsdl" />
+    <MetadataFile FileName="Categories.xsd" MetadataType="Schema" ID="51270610-9a20-43fb-8648-5a0dfdc4850e" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?xsd=xsd0" />
+    <MetadataFile FileName="Categories1.xsd" MetadataType="Schema" ID="02da16a2-32dd-487d-b97b-8e7a40e901c0" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?xsd=xsd2" />
+    <MetadataFile FileName="Categories2.xsd" MetadataType="Schema" ID="d23dc4cc-1e95-4426-ac52-546553fb645d" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

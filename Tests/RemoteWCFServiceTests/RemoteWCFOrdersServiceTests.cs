@@ -2,7 +2,7 @@
 {
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Tests.WCFOrdersService;
+    using Tests.OrdersServiceReference;
 
     [TestClass]
     public class RemoteWCFOrdersServiceTests
@@ -25,7 +25,7 @@
             {
                 var allOrders = client.GetAll();
 
-                var orderId = allOrders.First().OrderId;
+                var orderId  = allOrders.First().OrderId;
 
                 var orderById = client.GetById(orderId);
 

@@ -41,9 +41,11 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <Choose>
@@ -63,8 +65,18 @@
     <Compile Include="DALTests\CategoriesDataTests.cs" />
     <Compile Include="NortwindDbConnectionFactoryForTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="RemoteWCFServiceTests\RemoteWCFOrdersServiceTests.cs" />
-    <Compile Include="Service References\WCFOrdersService\Reference.cs">
+    <Compile Include="Service References\CategoriesServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OrdersServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -76,25 +88,36 @@
       <Project>{430fccba-1260-4ee5-9d97-ee6acd968a15}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OrderService\OrdersService.csproj">
+    <ProjectReference Include="..\OrderService\OrderService.csproj">
       <Project>{41839a84-4703-4fbb-95c0-c592dc55df0f}</Project>
-      <Name>OrdersService</Name>
+      <Name>OrderService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="OrderedTest1.orderedtest">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\WCFOrdersService\OrdersService.wsdl" />
-    <None Include="Service References\WCFOrdersService\OrdersService1.wsdl" />
-    <None Include="Service References\WCFOrdersService\OrdersService1.xsd">
+    <None Include="Service References\CategoriesServiceReference\Categories.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WCFOrdersService\OrdersService2.xsd">
+    <None Include="Service References\CategoriesServiceReference\Categories1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WCFOrdersService\Tests.WCFOrdersService.OrderDTO.datasource">
+    <None Include="Service References\CategoriesServiceReference\Categories2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriesServiceReference\CategoriesService.wsdl" />
+    <None Include="Service References\OrdersServiceReference\Orders.wsdl" />
+    <None Include="Service References\OrdersServiceReference\Orders.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrdersServiceReference\Orders1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrdersServiceReference\OrdersService.wsdl" />
+    <None Include="Service References\OrdersServiceReference\Tests.OrdersServiceReference.OrderDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -102,19 +125,35 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WCFOrdersService\" />
+    <WCFMetadataStorage Include="Service References\CategoriesServiceReference\" />
+    <WCFMetadataStorage Include="Service References\OrdersServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WCFOrdersService\OrdersService.disco" />
+    <None Include="Service References\OrdersServiceReference\Orders.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WCFOrdersService\configuration91.svcinfo" />
+    <None Include="Service References\OrdersServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WCFOrdersService\configuration.svcinfo" />
+    <None Include="Service References\OrdersServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WCFOrdersService\Reference.svcmap">
+    <None Include="Service References\OrdersServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CategoriesServiceReference\Categories.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CategoriesServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CategoriesServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CategoriesServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

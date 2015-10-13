@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tests.WCFOrdersService {
+namespace Tests.OrdersServiceReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -35,13 +35,13 @@ namespace Tests.WCFOrdersService {
         private System.Nullable<System.DateTime> OrderDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Tests.WCFOrdersService.OrderDetailDTO[] OrderDetailsField;
+        private System.Collections.Generic.List<Tests.OrdersServiceReference.OrderDetailDTO> OrderDetailsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OrderIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Tests.WCFOrdersService.OrderState OrderStateField;
+        private Tests.OrdersServiceReference.OrderState OrderStateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> RequiredDateField;
@@ -133,7 +133,7 @@ namespace Tests.WCFOrdersService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Tests.WCFOrdersService.OrderDetailDTO[] OrderDetails {
+        public System.Collections.Generic.List<Tests.OrdersServiceReference.OrderDetailDTO> OrderDetails {
             get {
                 return this.OrderDetailsField;
             }
@@ -159,7 +159,7 @@ namespace Tests.WCFOrdersService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Tests.WCFOrdersService.OrderState OrderState {
+        public Tests.OrdersServiceReference.OrderState OrderState {
             get {
                 return this.OrderStateField;
             }
@@ -311,13 +311,13 @@ namespace Tests.WCFOrdersService {
         private float DiscountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Tests.WCFOrdersService.OrderDTO OrderField;
+        private Tests.OrdersServiceReference.OrderDTO OrderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OrderIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Tests.WCFOrdersService.ProductDTO ProductField;
+        private Tests.OrdersServiceReference.ProductDTO ProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ProductIDField;
@@ -352,7 +352,7 @@ namespace Tests.WCFOrdersService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Tests.WCFOrdersService.OrderDTO Order {
+        public Tests.OrdersServiceReference.OrderDTO Order {
             get {
                 return this.OrderField;
             }
@@ -378,7 +378,7 @@ namespace Tests.WCFOrdersService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Tests.WCFOrdersService.ProductDTO Product {
+        public Tests.OrdersServiceReference.ProductDTO Product {
             get {
                 return this.ProductField;
             }
@@ -643,23 +643,29 @@ namespace Tests.WCFOrdersService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/OrdersService", ConfigurationName="WCFOrdersService.IOrdersService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/OrdersService", ConfigurationName="OrdersServiceReference.IOrdersService")]
     public interface IOrdersService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/IOrdersService/GetAll", ReplyAction="http://epam.com/OrdersService/IOrdersService/GetAllResponse")]
-        Tests.WCFOrdersService.OrderDTO[] GetAll();
+        System.Collections.Generic.List<Tests.OrdersServiceReference.OrderDTO> GetAll();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/IOrdersService/GetById", ReplyAction="http://epam.com/OrdersService/IOrdersService/GetByIdResponse")]
-        Tests.WCFOrdersService.OrderDTO GetById(int orderId);
+        Tests.OrdersServiceReference.OrderDTO GetById(int orderId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/IOrdersService/CreateNewOrder", ReplyAction="http://epam.com/OrdersService/IOrdersService/CreateNewOrderResponse")]
+        Tests.OrdersServiceReference.OrderDTO CreateNewOrder();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/IOrdersService/DeleteOrder", ReplyAction="http://epam.com/OrdersService/IOrdersService/DeleteOrderResponse")]
+        void DeleteOrder(int orderId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IOrdersServiceChannel : Tests.WCFOrdersService.IOrdersService, System.ServiceModel.IClientChannel {
+    public interface IOrdersServiceChannel : Tests.OrdersServiceReference.IOrdersService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class OrdersServiceClient : System.ServiceModel.ClientBase<Tests.WCFOrdersService.IOrdersService>, Tests.WCFOrdersService.IOrdersService {
+    public partial class OrdersServiceClient : System.ServiceModel.ClientBase<Tests.OrdersServiceReference.IOrdersService>, Tests.OrdersServiceReference.IOrdersService {
         
         public OrdersServiceClient() {
         }
@@ -680,12 +686,20 @@ namespace Tests.WCFOrdersService {
                 base(binding, remoteAddress) {
         }
         
-        public Tests.WCFOrdersService.OrderDTO[] GetAll() {
+        public System.Collections.Generic.List<Tests.OrdersServiceReference.OrderDTO> GetAll() {
             return base.Channel.GetAll();
         }
         
-        public Tests.WCFOrdersService.OrderDTO GetById(int orderId) {
+        public Tests.OrdersServiceReference.OrderDTO GetById(int orderId) {
             return base.Channel.GetById(orderId);
+        }
+        
+        public Tests.OrdersServiceReference.OrderDTO CreateNewOrder() {
+            return base.Channel.CreateNewOrder();
+        }
+        
+        public void DeleteOrder(int orderId) {
+            base.Channel.DeleteOrder(orderId);
         }
     }
 }

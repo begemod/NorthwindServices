@@ -63,7 +63,6 @@
     <Compile Include="DataContracts\OrderState.cs" />
     <Compile Include="DataContracts\ProductDTO.cs" />
     <Compile Include="IOrdersService.cs" />
-    <Compile Include="NortwindDbConnectionFactory.cs" />
     <Compile Include="OrdersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
