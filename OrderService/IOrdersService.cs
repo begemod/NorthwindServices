@@ -12,5 +12,11 @@
 
         [OperationContract]
         OrderDTO GetById(int orderId);
+
+        [OperationContract]
+        OrderDTO CreateNewOrder();
+
+        [OperationContract]
+        void DeleteOrder(int orderId);
     }
 }

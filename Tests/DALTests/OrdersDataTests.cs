@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using DAL.DataServices;
+    using DAL.Infrastructure;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -10,7 +11,7 @@
         private OrdersDataService ordersDataService;
 
         [TestInitialize]
-        public void ClassInitialize()
+        public void TestInitialize()
         {
             var connectionFactory = new NortwindDbConnectionFactoryForTests();
             this.ordersDataService = new OrdersDataService(connectionFactory);
@@ -33,6 +34,20 @@
             var orderById = this.ordersDataService.GetById(orderId);
 
             Assert.IsNotNull(orderById);
+        }
+
+        [TestMethod]
+        public void DeleteOrderTest()
+        {
+            var allOrders = this.ordersDataService.GetAll();
+            var orderId = allOrders.First().OrderID;
+
+            using (TransactionScopeHelper.GetDefaultTransactionScope())
+            {
+                var affectedRows = this.ordersDataService.DeleteOrder(orderId);
+
+                Assert.IsTrue(affectedRows == 1);
+            }
         }
     }
 }

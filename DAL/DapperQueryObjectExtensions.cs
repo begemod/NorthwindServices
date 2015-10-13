@@ -17,5 +17,10 @@
         {
             return cnn.Query(queryObject.Sql, map, queryObject.QueryParams, transaction, buffered, splitOn, commandTimeout, commandType);
         }
+
+        public static int Execute(this IDbConnection cnn, QueryObject queryObject, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
+        {
+            return cnn.Execute(queryObject.Sql, queryObject.QueryParams, transaction, commandTimeout, commandType);
+        }
     }
 }

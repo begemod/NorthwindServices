@@ -31,7 +31,7 @@
 
                 if (order == null)
                 {
-                    throw new EntityNotFoundException("Order by defined id fas not found.", orderId.ToString());
+                    throw new EntityNotFoundException("Order by defined id is not found.", orderId.ToString());
                 }
 
                 var orderDetailQueryObject = new OrderDetailQueryObject();
@@ -47,6 +47,23 @@
                 order.OrderDetails = orderDetails;
 
                 return order;
+            }
+        }
+
+        public int DeleteOrder(int orderId)
+        {
+            using (var connection = this.GetConnection())
+            {
+                var orderQueryObject = new OrderQueryObject();
+
+                using (var scope = TransactionScopeHelper.GetDefaultTransactionScope())
+                {
+                    var affectedRows = connection.Query<int>(orderQueryObject.DeleteOrder(orderId)).Single();
+
+                    scope.Complete();
+
+                    return affectedRows;
+                }
             }
         }
     }

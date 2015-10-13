@@ -36,6 +36,16 @@
             return result;
         }
 
+        public OrderDTO CreateNewOrder()
+        {
+            return new OrderDTO();
+        }
+
+        public void DeleteOrder(int orderId)
+        {
+            
+        }
+
         private void ConfigureInMapping()
         {
             Mapper.CreateMap<OrderDTO, Order>();
