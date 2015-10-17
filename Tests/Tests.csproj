@@ -71,6 +71,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="RemoteWCFServiceTests\RemoteWCFOrdersServiceTests.cs" />
+    <Compile Include="RemoteWCFServiceTests\RemoteWCFCategoriesServiceTests.cs" />
     <Compile Include="Service References\CategoriesServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
