@@ -1,4 +1,4 @@
-﻿namespace OrderService.DataContracts
+﻿namespace WCFServices.DataContracts
 {
     using System.Runtime.Serialization;
 
