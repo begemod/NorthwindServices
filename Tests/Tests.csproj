@@ -95,16 +95,20 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\CategoriesServiceReference\Categories.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CategoriesServiceReference\Categories1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CategoriesServiceReference\Categories2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\CategoriesServiceReference\CategoriesService.wsdl" />
+    <None Include="Service References\CategoriesServiceReference\CategoriesService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriesServiceReference\CategoriesService1.wsdl" />
+    <None Include="Service References\CategoriesServiceReference\CategoriesService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriesServiceReference\CategoriesService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriesServiceReference\CategoriesService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\OrdersServiceReference\Orders.wsdl" />
     <None Include="Service References\OrdersServiceReference\Orders.xsd">
       <SubType>Designer</SubType>
@@ -140,7 +144,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CategoriesServiceReference\Categories.disco" />
+    <None Include="Service References\CategoriesServiceReference\CategoriesService.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CategoriesServiceReference\configuration91.svcinfo" />

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.IO;
+    using System.ServiceModel;
     using DAL.DataServices;
     using DAL.Infrastructure;
 
@@ -22,7 +23,22 @@
 
         public Stream GetCategoryImage(string categoryName)
         {
-            return new MemoryStream();
+            if (string.IsNullOrWhiteSpace(categoryName))
+            {
+                return null;
+            }
+
+            try
+            {
+                var category = this.categoriesDataService.GetByCategoryName(categoryName);
+
+                var categoryImage = category.Picture;
+                return new MemoryStream(categoryImage, 78, categoryImage.Length - 78);
+            }
+            catch (EntityNotFoundException exception)
+            {
+                throw new FaultException(exception.Message);
+            }
         }
 
         public void SaveCategoryImage(Stream categoryImage)

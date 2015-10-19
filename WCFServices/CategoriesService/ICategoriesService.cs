@@ -4,7 +4,7 @@
     using System.IO;
     using System.ServiceModel;
 
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://epam.com/OrdersService")]
     public interface ICategoriesService
     {
         [OperationContract]

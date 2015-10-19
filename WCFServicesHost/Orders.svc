@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Service="OrderService.OrdersService" %>
+﻿<%@ ServiceHost Service="WCFServices.OrdersService.OrdersService" %>

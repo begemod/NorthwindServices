@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using DAL.Entities;
+    using DAL.Infrastructure;
     using DAL.QueryObjects;
 
     public class CategoriesDataService : BaseDataService
@@ -17,7 +18,14 @@
             using (var connection = this.GetConnection())
             {
                 var categoryQueryObject = new CategoryQueryObject();
-                return connection.Query<Category>(categoryQueryObject.GetByCategoryName(categoryName)).FirstOrDefault();
+                var categories = connection.Query<Category>(categoryQueryObject.GetByCategoryName(categoryName)).ToList();
+
+                if (!categories.Any())
+                {
+                    throw new EntityNotFoundException(string.Format("Category with {0} name is not found in database.", categoryName));
+                }
+
+                return categories.First();
             }
         }
 

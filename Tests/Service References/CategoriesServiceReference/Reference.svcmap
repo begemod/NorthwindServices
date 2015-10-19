@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8fd8f275-4917-4615-8753-e86d14294a52" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e17014fe-b8b0-4b4b-a1f3-d13964624e89" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -20,14 +20,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/WCFServices/Categories.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:40000/CategoriesService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Categories.disco" MetadataType="Disco" ID="3c104a84-017e-4082-a9bb-e5a50461a418" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?disco" />
-    <MetadataFile FileName="CategoriesService.wsdl" MetadataType="Wsdl" ID="66af1326-57e8-45b0-8e0e-f959f9192f20" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?wsdl" />
-    <MetadataFile FileName="Categories.xsd" MetadataType="Schema" ID="51270610-9a20-43fb-8648-5a0dfdc4850e" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?xsd=xsd0" />
-    <MetadataFile FileName="Categories1.xsd" MetadataType="Schema" ID="02da16a2-32dd-487d-b97b-8e7a40e901c0" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?xsd=xsd2" />
-    <MetadataFile FileName="Categories2.xsd" MetadataType="Schema" ID="d23dc4cc-1e95-4426-ac52-546553fb645d" SourceId="1" SourceUrl="http://epruizhw0228.moscow.epam.com/WCFServices/Categories.svc?xsd=xsd1" />
+    <MetadataFile FileName="CategoriesService.wsdl" MetadataType="Wsdl" ID="f9c48fcd-e396-47fc-935c-3675f979479e" SourceId="1" SourceUrl="http://localhost:40000/CategoriesService?wsdl" />
+    <MetadataFile FileName="CategoriesService.disco" MetadataType="Disco" ID="3c18a31b-fc9c-4b5d-b9a9-d1adc09b1fdb" SourceId="1" SourceUrl="http://localhost:40000/CategoriesService?disco" />
+    <MetadataFile FileName="CategoriesService.xsd" MetadataType="Schema" ID="01209ea9-cc94-401f-9029-5695e577190c" SourceId="1" SourceUrl="http://localhost:40000/CategoriesService?xsd=xsd3" />
+    <MetadataFile FileName="CategoriesService1.xsd" MetadataType="Schema" ID="3a7e36d9-48e8-4c9c-afb6-05bbce4a6501" SourceId="1" SourceUrl="http://localhost:40000/CategoriesService?xsd=xsd2" />
+    <MetadataFile FileName="CategoriesService1.wsdl" MetadataType="Wsdl" ID="10c650d0-3cc8-4301-9ab8-aadd712f0d9e" SourceId="1" SourceUrl="http://localhost:40000/CategoriesService?wsdl=wsdl0" />
+    <MetadataFile FileName="CategoriesService2.xsd" MetadataType="Schema" ID="139c2ee5-32e7-4bca-a054-5f57f7a96e7e" SourceId="1" SourceUrl="http://localhost:40000/CategoriesService?xsd=xsd0" />
+    <MetadataFile FileName="CategoriesService3.xsd" MetadataType="Schema" ID="75a7d6e8-49ab-4909-bf9b-dc8753284bfc" SourceId="1" SourceUrl="http://localhost:40000/CategoriesService?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -12,11 +12,17 @@ namespace Tests.CategoriesServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CategoriesServiceReference.ICategoriesService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/OrdersService", ConfigurationName="CategoriesServiceReference.ICategoriesService")]
     public interface ICategoriesService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoriesService/GetCategoryNames", ReplyAction="http://tempuri.org/ICategoriesService/GetCategoryNamesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/ICategoriesService/GetCategoryNames", ReplyAction="http://epam.com/OrdersService/ICategoriesService/GetCategoryNamesResponse")]
         System.Collections.Generic.List<string> GetCategoryNames();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/ICategoriesService/GetCategoryImage", ReplyAction="http://epam.com/OrdersService/ICategoriesService/GetCategoryImageResponse")]
+        System.IO.Stream GetCategoryImage(string categoryName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/ICategoriesService/SaveCategoryImage", ReplyAction="http://epam.com/OrdersService/ICategoriesService/SaveCategoryImageResponse")]
+        void SaveCategoryImage(System.IO.Stream categoryImage);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -48,6 +54,14 @@ namespace Tests.CategoriesServiceReference {
         
         public System.Collections.Generic.List<string> GetCategoryNames() {
             return base.Channel.GetCategoryNames();
+        }
+        
+        public System.IO.Stream GetCategoryImage(string categoryName) {
+            return base.Channel.GetCategoryImage(categoryName);
+        }
+        
+        public void SaveCategoryImage(System.IO.Stream categoryImage) {
+            base.Channel.SaveCategoryImage(categoryImage);
         }
     }
 }

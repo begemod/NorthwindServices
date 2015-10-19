@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Service="CategoriesService.CategoriesService" %>
+﻿<%@ ServiceHost Service="WCFServices.CategoriesService.CategoriesService" %>
