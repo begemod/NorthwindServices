@@ -79,10 +79,6 @@
       <Project>{deaa18ed-6dac-45d1-abc7-f5e30be10dfb}</Project>
       <Name>CategoriesService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OrderService\OrderService.csproj">
-      <Project>{41839a84-4703-4fbb-95c0-c592dc55df0f}</Project>
-      <Name>OrderService</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
