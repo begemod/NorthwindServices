@@ -4,7 +4,7 @@
     using System.IO;
     using System.ServiceModel;
 
-    [ServiceContract(Namespace = "http://epam.com/OrdersService")]
+    [ServiceContract(Namespace = "http://epam.com/NorthwindService")]
     public interface ICategoriesService
     {
         [OperationContract]
@@ -14,6 +14,6 @@
         Stream GetCategoryImage(string categoryName);
 
         [OperationContract]
-        void SaveCategoryImage(Stream categoryImage);
+        void SaveCategoryImage(Stream categoryImage, string categoryName);
     }
 }

@@ -4,7 +4,6 @@
     using System.IO;
     using System.Linq;
     using System.ServiceModel;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Tests.CategoriesServiceReference;
 

@@ -12,16 +12,16 @@ namespace Tests.CategoriesServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/OrdersService", ConfigurationName="CategoriesServiceReference.ICategoriesService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/NorthwindService", ConfigurationName="CategoriesServiceReference.ICategoriesService")]
     public interface ICategoriesService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/ICategoriesService/GetCategoryNames", ReplyAction="http://epam.com/OrdersService/ICategoriesService/GetCategoryNamesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/ICategoriesService/GetCategoryNames", ReplyAction="http://epam.com/NorthwindService/ICategoriesService/GetCategoryNamesResponse")]
         System.Collections.Generic.List<string> GetCategoryNames();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/ICategoriesService/GetCategoryImage", ReplyAction="http://epam.com/OrdersService/ICategoriesService/GetCategoryImageResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/ICategoriesService/GetCategoryImage", ReplyAction="http://epam.com/NorthwindService/ICategoriesService/GetCategoryImageResponse")]
         System.IO.Stream GetCategoryImage(string categoryName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/ICategoriesService/SaveCategoryImage", ReplyAction="http://epam.com/OrdersService/ICategoriesService/SaveCategoryImageResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImage", ReplyAction="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImageResponse")]
         void SaveCategoryImage(System.IO.Stream categoryImage);
     }
     

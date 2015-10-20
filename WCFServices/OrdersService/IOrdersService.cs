@@ -5,7 +5,7 @@
 
     using WCFServices.DataContracts;
 
-    [ServiceContract(Namespace = "http://epam.com/OrdersService")]
+    [ServiceContract(Namespace = "http://epam.com/NorthwindService")]
     public interface IOrdersService
     {
         [OperationContract]

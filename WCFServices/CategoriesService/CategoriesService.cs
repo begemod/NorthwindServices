@@ -33,7 +33,10 @@
                 var category = this.categoriesDataService.GetByCategoryName(categoryName);
 
                 var categoryImage = category.Picture;
-                return new MemoryStream(categoryImage, 78, categoryImage.Length - 78);
+
+                var imageStream = new MemoryStream(categoryImage, 78, categoryImage.Length - 78);
+
+                return imageStream;
             }
             catch (EntityNotFoundException exception)
             {
@@ -41,9 +44,12 @@
             }
         }
 
-        public void SaveCategoryImage(Stream categoryImage)
+        public void SaveCategoryImage(Stream categoryImage, string categoryName)
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrWhiteSpace(categoryName))
+            {
+                //throw new FaultException<ArgumentNullException>("Category name is not defined");
+            }
         }
     }
 }
