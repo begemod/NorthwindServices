@@ -2,6 +2,8 @@
 {
     using System.Linq;
     using DAL.DataServices;
+    using DAL.Infrastructure;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -20,9 +22,9 @@
         public void GetByCategoryNameTest()
         {
             var categoryNames = this.categoriesDataService.GetCategoryNames();
-            var beveragesCategoryName = categoryNames.First();
+            var categoryName = categoryNames.First();
 
-            var category = this.categoriesDataService.GetByCategoryName(beveragesCategoryName);
+            var category = this.categoriesDataService.GetByCategoryName(categoryName);
 
             Assert.IsNotNull(category);
         }
@@ -32,6 +34,20 @@
         {
             var categoryNames = this.categoriesDataService.GetCategoryNames();
             Assert.IsTrue(categoryNames.Any());
+        }
+
+        [TestMethod]
+        public void SaveCategoryImageTest()
+        {
+            var categoryNames = this.categoriesDataService.GetCategoryNames();
+            var categoryName = categoryNames.First();
+
+            var category = this.categoriesDataService.GetByCategoryName(categoryName);
+
+            using (TransactionScopeHelper.GetDefaultTransactionScope())
+            {
+                this.categoriesDataService.UpdateCategoryPicture(category);
+            }
         }
     }
 }

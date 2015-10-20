@@ -6,6 +6,8 @@
     using DAL.Infrastructure;
     using DAL.QueryObjects;
 
+    using Dapper;
+
     public class CategoriesDataService : BaseDataService
     {
         public CategoriesDataService(IConnectionFactory connectionFactory)
@@ -35,6 +37,20 @@
             {
                 var categoryQueryObject = new CategoryQueryObject();
                 return connection.Query<string>(categoryQueryObject.GetCategoryNames());
+            }
+        }
+
+        public void UpdateCategoryPicture(Category category)
+        {
+            if (category == null)
+            {
+                return;
+            }
+
+            using (var connection = this.GetConnection())
+            {
+                var categoryQueryObject = new CategoryQueryObject();
+                connection.Execute(categoryQueryObject.UpdateCategoryImage(category.CategoryID, category.Picture));
             }
         }
     }
