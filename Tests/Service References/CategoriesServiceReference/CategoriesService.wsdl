@@ -24,7 +24,8 @@
     </wsdl:operation>
     <wsdl:operation name="SaveCategoryImage">
       <soap:operation soapAction="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImage" style="document" />
-      <wsdl:input>
+      <wsdl:input name="SendingCategory">
+        <soap:header message="i0:SendingCategory_Headers" part="CategoryName" use="literal" />
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>

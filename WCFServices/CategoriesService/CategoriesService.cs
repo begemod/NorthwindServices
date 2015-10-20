@@ -1,10 +1,12 @@
 ﻿namespace WCFServices.CategoriesService
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.ServiceModel;
     using DAL.DataServices;
     using DAL.Infrastructure;
+    using WCFServices.DataContracts;
 
     public class CategoriesService : ICategoriesService
     {
@@ -40,15 +42,29 @@
             }
             catch (EntityNotFoundException exception)
             {
-                throw new FaultException(exception.Message);
+                throw new FaultException(new FaultReason(exception.Message), new FaultCode("Error"));
             }
         }
 
-        public void SaveCategoryImage(Stream categoryImage, string categoryName)
+        public void SaveCategoryImage(SendingCategory category)
         {
-            if (string.IsNullOrWhiteSpace(categoryName))
+            if (category == null)
             {
-                //throw new FaultException<ArgumentNullException>("Category name is not defined");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(category.CategoryName))
+            {
+                throw new FaultException(new FaultReason("Category name is not defined."), new FaultCode("Error"));
+            }
+
+            try
+            {
+                var categoryByName = this.categoriesDataService.GetByCategoryName(category.CategoryName);
+            }
+            catch (EntityNotFoundException exception)
+            {
+                throw new FaultException(new FaultReason(exception.Message), new FaultCode("Error"));
             }
         }
     }

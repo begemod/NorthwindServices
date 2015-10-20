@@ -72,12 +72,12 @@
     </Compile>
     <Compile Include="RemoteWCFServiceTests\RemoteWCFOrdersServiceTests.cs" />
     <Compile Include="RemoteWCFServiceTests\RemoteWCFCategoriesServiceTests.cs" />
-    <Compile Include="Service References\CategoriesServiceReference\Reference.cs">
+    <Compile Include="Service References\OrdersServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\OrdersServiceReference\Reference.cs">
+    <Compile Include="Service References\CategoriesServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -95,6 +95,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Service References\OrdersServiceReference\Orders.wsdl" />
+    <None Include="Service References\OrdersServiceReference\Orders.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrdersServiceReference\Orders1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrdersServiceReference\OrdersService.wsdl" />
+    <None Include="Service References\OrdersServiceReference\Tests.OrdersServiceReference.OrderDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\CategoriesServiceReference\CategoriesService.wsdl" />
     <None Include="Service References\CategoriesServiceReference\CategoriesService.xsd">
       <SubType>Designer</SubType>
@@ -109,24 +120,13 @@
     <None Include="Service References\CategoriesServiceReference\CategoriesService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\OrdersServiceReference\Orders.wsdl" />
-    <None Include="Service References\OrdersServiceReference\Orders.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\OrdersServiceReference\Orders1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\OrdersServiceReference\OrdersService.wsdl" />
-    <None Include="Service References\OrdersServiceReference\Tests.OrdersServiceReference.OrderDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\CategoriesServiceReference\" />
     <WCFMetadataStorage Include="Service References\OrdersServiceReference\" />
+    <WCFMetadataStorage Include="Service References\CategoriesServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\OrdersServiceReference\Orders.disco" />

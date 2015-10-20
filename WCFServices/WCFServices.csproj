@@ -63,6 +63,7 @@
     <Compile Include="DataContracts\OrderState.cs" />
     <Compile Include="DataContracts\ProductDTO.cs" />
     <Compile Include="CategoriesService\ICategoriesService.cs" />
+    <Compile Include="DataContracts\SendingCategory.cs" />
     <Compile Include="OrdersService\IOrdersService.cs" />
     <Compile Include="OrdersService\OrdersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

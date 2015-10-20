@@ -60,5 +60,49 @@
                 Assert.IsTrue(memoryStream.Length > 0);
             }
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException))]
+        public void SaveCategoryImageNullCategoryNameFaultTest()
+        {
+            using (var client = new CategoriesServiceClient())
+            {
+                client.SaveCategoryImage(string.Empty, new MemoryStream());
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException))]
+        public void SaveCategoryImageWrongCategoryNameFaultTest()
+        {
+            using (var client = new CategoriesServiceClient())
+            {
+                var wrongCategoryName = Guid.NewGuid().ToString();
+                var stream = new MemoryStream();
+
+                client.SaveCategoryImage(wrongCategoryName, stream);
+            }
+        }
+
+        [TestMethod]
+        public void SaveCategoryImageTest()
+        {
+            using (var client = new CategoriesServiceClient())
+            {
+                var image = new byte[20000];
+
+                for (var i = 0; i < image.Length - 1; i++)
+                {
+                    image[i] = (byte)i;
+                }
+
+                var categoryNames = client.GetCategoryNames();
+                var categoryName = categoryNames.First();
+
+                var stream = new MemoryStream(image);
+
+                client.SaveCategoryImage(categoryName, stream);
+            }
+        }
     }
 }

@@ -20,12 +20,13 @@
   <wsdl:message name="ICategoriesService_GetCategoryImage_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCategoryImageResponse" />
   </wsdl:message>
-  <wsdl:message name="ICategoriesService_SaveCategoryImage_InputMessage">
-    <wsdl:part name="parameters" element="tns:SaveCategoryImage" />
+  <wsdl:message name="SendingCategory">
+    <wsdl:part name="parameters" element="tns:SendingCategory" />
   </wsdl:message>
-  <wsdl:message name="ICategoriesService_SaveCategoryImage_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SaveCategoryImageResponse" />
+  <wsdl:message name="SendingCategory_Headers">
+    <wsdl:part name="CategoryName" element="tns:CategoryName" />
   </wsdl:message>
+  <wsdl:message name="ICategoriesService_SaveCategoryImage_OutputMessage" />
   <wsdl:portType name="ICategoriesService">
     <wsdl:operation name="GetCategoryNames">
       <wsdl:input wsaw:Action="http://epam.com/NorthwindService/ICategoriesService/GetCategoryNames" message="tns:ICategoriesService_GetCategoryNames_InputMessage" />
@@ -36,7 +37,7 @@
       <wsdl:output wsaw:Action="http://epam.com/NorthwindService/ICategoriesService/GetCategoryImageResponse" message="tns:ICategoriesService_GetCategoryImage_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveCategoryImage">
-      <wsdl:input wsaw:Action="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImage" message="tns:ICategoriesService_SaveCategoryImage_InputMessage" />
+      <wsdl:input wsaw:Action="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImage" name="SendingCategory" message="tns:SendingCategory" />
       <wsdl:output wsaw:Action="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImageResponse" message="tns:ICategoriesService_SaveCategoryImage_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>

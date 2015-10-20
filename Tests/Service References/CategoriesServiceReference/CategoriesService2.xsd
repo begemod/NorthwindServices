@@ -28,16 +28,12 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SaveCategoryImage">
+  <xs:element name="SendingCategory">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.microsoft.com/Message" name="categoryImage" type="q3:StreamBody" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/Message" name="CategotyImage" type="q3:StreamBody" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SaveCategoryImageResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="CategoryName" nillable="true" type="xs:string" />
 </xs:schema>

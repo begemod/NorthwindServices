@@ -21,8 +21,40 @@ namespace Tests.CategoriesServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/ICategoriesService/GetCategoryImage", ReplyAction="http://epam.com/NorthwindService/ICategoriesService/GetCategoryImageResponse")]
         System.IO.Stream GetCategoryImage(string categoryName);
         
+        // CODEGEN: Generating message contract since the operation SaveCategoryImage is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImage", ReplyAction="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImageResponse")]
-        void SaveCategoryImage(System.IO.Stream categoryImage);
+        Tests.CategoriesServiceReference.SaveCategoryImageResponse SaveCategoryImage(Tests.CategoriesServiceReference.SendingCategory request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SendingCategory", WrapperNamespace="http://epam.com/NorthwindService", IsWrapped=true)]
+    public partial class SendingCategory {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://epam.com/NorthwindService")]
+        public string CategoryName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://epam.com/NorthwindService", Order=0)]
+        public System.IO.Stream CategotyImage;
+        
+        public SendingCategory() {
+        }
+        
+        public SendingCategory(string CategoryName, System.IO.Stream CategotyImage) {
+            this.CategoryName = CategoryName;
+            this.CategotyImage = CategotyImage;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SaveCategoryImageResponse {
+        
+        public SaveCategoryImageResponse() {
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -60,8 +92,16 @@ namespace Tests.CategoriesServiceReference {
             return base.Channel.GetCategoryImage(categoryName);
         }
         
-        public void SaveCategoryImage(System.IO.Stream categoryImage) {
-            base.Channel.SaveCategoryImage(categoryImage);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Tests.CategoriesServiceReference.SaveCategoryImageResponse Tests.CategoriesServiceReference.ICategoriesService.SaveCategoryImage(Tests.CategoriesServiceReference.SendingCategory request) {
+            return base.Channel.SaveCategoryImage(request);
+        }
+        
+        public void SaveCategoryImage(string CategoryName, System.IO.Stream CategotyImage) {
+            Tests.CategoriesServiceReference.SendingCategory inValue = new Tests.CategoriesServiceReference.SendingCategory();
+            inValue.CategoryName = CategoryName;
+            inValue.CategotyImage = CategotyImage;
+            Tests.CategoriesServiceReference.SaveCategoryImageResponse retVal = ((Tests.CategoriesServiceReference.ICategoriesService)(this)).SaveCategoryImage(inValue);
         }
     }
 }

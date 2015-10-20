@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.ServiceModel;
-
     using WCFServices.DataContracts;
 
     [ServiceContract(Namespace = "http://epam.com/NorthwindService")]

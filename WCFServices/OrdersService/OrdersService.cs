@@ -6,7 +6,6 @@
     using DAL.DataServices;
     using DAL.Entities;
     using DAL.Infrastructure;
-
     using WCFServices.DataContracts;
 
     public class OrdersService : IOrdersService
