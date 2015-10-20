@@ -72,12 +72,12 @@
     </Compile>
     <Compile Include="RemoteWCFServiceTests\RemoteWCFOrdersServiceTests.cs" />
     <Compile Include="RemoteWCFServiceTests\RemoteWCFCategoriesServiceTests.cs" />
-    <Compile Include="Service References\OrdersServiceReference\Reference.cs">
+    <Compile Include="Service References\CategoriesService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\CategoriesServiceReference\Reference.cs">
+    <Compile Include="Service References\OrdersServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -95,6 +95,20 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Service References\CategoriesService\CategoriesService.wsdl" />
+    <None Include="Service References\CategoriesService\CategoriesService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriesService\CategoriesService1.wsdl" />
+    <None Include="Service References\CategoriesService\CategoriesService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriesService\CategoriesService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriesService\CategoriesService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\OrdersServiceReference\Orders.wsdl" />
     <None Include="Service References\OrdersServiceReference\Orders.xsd">
       <SubType>Designer</SubType>
@@ -106,27 +120,13 @@
     <None Include="Service References\OrdersServiceReference\Tests.OrdersServiceReference.OrderDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CategoriesServiceReference\CategoriesService.wsdl" />
-    <None Include="Service References\CategoriesServiceReference\CategoriesService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CategoriesServiceReference\CategoriesService1.wsdl" />
-    <None Include="Service References\CategoriesServiceReference\CategoriesService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CategoriesServiceReference\CategoriesService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CategoriesServiceReference\CategoriesService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CategoriesService\" />
     <WCFMetadataStorage Include="Service References\OrdersServiceReference\" />
-    <WCFMetadataStorage Include="Service References\CategoriesServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\OrdersServiceReference\Orders.disco" />
@@ -144,16 +144,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CategoriesServiceReference\CategoriesService.disco" />
+    <None Include="Service References\CategoriesService\CategoriesService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CategoriesServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\CategoriesService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CategoriesServiceReference\configuration.svcinfo" />
+    <None Include="Service References\CategoriesService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CategoriesServiceReference\Reference.svcmap">
+    <None Include="Service References\CategoriesService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

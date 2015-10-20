@@ -1,6 +1,5 @@
 ﻿namespace WCFServices.CategoriesService
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.ServiceModel;
@@ -46,13 +45,36 @@
             }
         }
 
-        public void SaveCategoryImage(SendingCategory category)
+        public void SaveCategoryImage(SendingCategory sendingCategory)
         {
-            if (category == null)
+            const int BuffSize = 1000;
+
+            if (sendingCategory == null)
             {
                 return;
             }
 
+            this.Validate(sendingCategory);
+
+            var buffer = new byte[BuffSize];
+            var memoryStream = new MemoryStream();
+
+            var readed = sendingCategory.CategoryImage.Read(buffer, 0, BuffSize);
+
+            while (readed != 0)
+            {
+                memoryStream.Write(buffer, 0, readed);
+                readed = sendingCategory.CategoryImage.Read(buffer, 0, BuffSize);
+            }
+
+            var sourceCategory = this.categoriesDataService.GetByCategoryName(sendingCategory.CategoryName);
+            sourceCategory.Picture = memoryStream.ToArray();
+
+            this.categoriesDataService.UpdateCategoryPicture(sourceCategory);
+        }
+
+        private void Validate(SendingCategory category)
+        {
             if (string.IsNullOrWhiteSpace(category.CategoryName))
             {
                 throw new FaultException(new FaultReason("Category name is not defined."), new FaultCode("Error"));
@@ -60,7 +82,7 @@
 
             try
             {
-                var categoryByName = this.categoriesDataService.GetByCategoryName(category.CategoryName);
+                 this.categoriesDataService.GetByCategoryName(category.CategoryName);
             }
             catch (EntityNotFoundException exception)
             {

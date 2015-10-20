@@ -5,7 +5,7 @@
     using System.Linq;
     using System.ServiceModel;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Tests.CategoriesServiceReference;
+    using Tests.CategoriesService;
 
     [TestClass]
     public class RemoteWCFCategoriesServiceTests
@@ -37,25 +37,13 @@
         {
             using (var client = new CategoriesServiceClient())
             {
-                const int BuffSize = 1000;
-
                 var names = client.GetCategoryNames();
 
                 var categoryName = names.First();
 
                 var readerStream = client.GetCategoryImage(categoryName);
 
-                var buffer = new byte[BuffSize];
-
-                var memoryStream = new MemoryStream();
-
-                var readed = readerStream.Read(buffer, 0, BuffSize);
-
-                while (readed != 0)
-                {
-                    memoryStream.Write(buffer, 0, readed);
-                    readed = readerStream.Read(buffer, 0, BuffSize);
-                }
+                var memoryStream = this.ReadDataToMemoryStream(readerStream);
 
                 Assert.IsTrue(memoryStream.Length > 0);
             }
@@ -89,20 +77,35 @@
         {
             using (var client = new CategoriesServiceClient())
             {
-                var image = new byte[20000];
+                var names = client.GetCategoryNames();
+                var categoryName = names.First();
 
-                for (var i = 0; i < image.Length - 1; i++)
-                {
-                    image[i] = (byte)i;
-                }
+                var readerStream = client.GetCategoryImage(categoryName);
 
-                var categoryNames = client.GetCategoryNames();
-                var categoryName = categoryNames.First();
+                var memoryStream = this.ReadDataToMemoryStream(readerStream);
+                memoryStream.Position = 0;
 
-                var stream = new MemoryStream(image);
-
-                client.SaveCategoryImage(categoryName, stream);
+                client.SaveCategoryImage(categoryName, memoryStream);
             }
+        }
+
+        private MemoryStream ReadDataToMemoryStream(Stream inputStream)
+        {
+            const int BuffSize = 1000;
+
+            var buffer = new byte[BuffSize];
+
+            var memoryStream = new MemoryStream();
+
+            var readed = inputStream.Read(buffer, 0, BuffSize);
+
+            while (readed != 0)
+            {
+                memoryStream.Write(buffer, 0, readed);
+                readed = inputStream.Read(buffer, 0, BuffSize);
+            }
+
+            return memoryStream;
         }
     }
 }

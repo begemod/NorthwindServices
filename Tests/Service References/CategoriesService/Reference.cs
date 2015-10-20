@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tests.CategoriesServiceReference {
+namespace Tests.CategoriesService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/NorthwindService", ConfigurationName="CategoriesServiceReference.ICategoriesService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/NorthwindService", ConfigurationName="CategoriesService.ICategoriesService")]
     public interface ICategoriesService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/ICategoriesService/GetCategoryNames", ReplyAction="http://epam.com/NorthwindService/ICategoriesService/GetCategoryNamesResponse")]
@@ -23,7 +23,7 @@ namespace Tests.CategoriesServiceReference {
         
         // CODEGEN: Generating message contract since the operation SaveCategoryImage is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImage", ReplyAction="http://epam.com/NorthwindService/ICategoriesService/SaveCategoryImageResponse")]
-        Tests.CategoriesServiceReference.SaveCategoryImageResponse SaveCategoryImage(Tests.CategoriesServiceReference.SendingCategory request);
+        Tests.CategoriesService.SaveCategoryImageResponse SaveCategoryImage(Tests.CategoriesService.SendingCategory request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -36,14 +36,14 @@ namespace Tests.CategoriesServiceReference {
         public string CategoryName;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://epam.com/NorthwindService", Order=0)]
-        public System.IO.Stream CategotyImage;
+        public System.IO.Stream CategoryImage;
         
         public SendingCategory() {
         }
         
-        public SendingCategory(string CategoryName, System.IO.Stream CategotyImage) {
+        public SendingCategory(string CategoryName, System.IO.Stream CategoryImage) {
             this.CategoryName = CategoryName;
-            this.CategotyImage = CategotyImage;
+            this.CategoryImage = CategoryImage;
         }
     }
     
@@ -58,12 +58,12 @@ namespace Tests.CategoriesServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ICategoriesServiceChannel : Tests.CategoriesServiceReference.ICategoriesService, System.ServiceModel.IClientChannel {
+    public interface ICategoriesServiceChannel : Tests.CategoriesService.ICategoriesService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CategoriesServiceClient : System.ServiceModel.ClientBase<Tests.CategoriesServiceReference.ICategoriesService>, Tests.CategoriesServiceReference.ICategoriesService {
+    public partial class CategoriesServiceClient : System.ServiceModel.ClientBase<Tests.CategoriesService.ICategoriesService>, Tests.CategoriesService.ICategoriesService {
         
         public CategoriesServiceClient() {
         }
@@ -93,15 +93,15 @@ namespace Tests.CategoriesServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Tests.CategoriesServiceReference.SaveCategoryImageResponse Tests.CategoriesServiceReference.ICategoriesService.SaveCategoryImage(Tests.CategoriesServiceReference.SendingCategory request) {
+        Tests.CategoriesService.SaveCategoryImageResponse Tests.CategoriesService.ICategoriesService.SaveCategoryImage(Tests.CategoriesService.SendingCategory request) {
             return base.Channel.SaveCategoryImage(request);
         }
         
-        public void SaveCategoryImage(string CategoryName, System.IO.Stream CategotyImage) {
-            Tests.CategoriesServiceReference.SendingCategory inValue = new Tests.CategoriesServiceReference.SendingCategory();
+        public void SaveCategoryImage(string CategoryName, System.IO.Stream CategoryImage) {
+            Tests.CategoriesService.SendingCategory inValue = new Tests.CategoriesService.SendingCategory();
             inValue.CategoryName = CategoryName;
-            inValue.CategotyImage = CategotyImage;
-            Tests.CategoriesServiceReference.SaveCategoryImageResponse retVal = ((Tests.CategoriesServiceReference.ICategoriesService)(this)).SaveCategoryImage(inValue);
+            inValue.CategoryImage = CategoryImage;
+            Tests.CategoriesService.SaveCategoryImageResponse retVal = ((Tests.CategoriesService.ICategoriesService)(this)).SaveCategoryImage(inValue);
         }
     }
 }

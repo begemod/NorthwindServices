@@ -10,6 +10,6 @@
         public string CategoryName { get; set; }
 
         [MessageBodyMember]
-        public Stream CategotyImage { get; set; }
+        public Stream CategoryImage { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace WCFServices.CategoriesService
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.ServiceModel;
@@ -16,6 +15,6 @@
         Stream GetCategoryImage(string categoryName);
 
         [OperationContract]
-        void SaveCategoryImage(SendingCategory category);
+        void SaveCategoryImage(SendingCategory sendingCategory);
     }
 }
