@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServices", "WCFServices\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServicesConsoleHost", "WCFServicesConsoleHost\WCFServicesConsoleHost.csproj", "{BCB3B3B3-D3DE-4D24-A6AC-0157187988E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdersServiceClient", "OrdersServiceClient\OrdersServiceClient.csproj", "{5367B4F1-E851-4B1D-B1B7-C092561B6D47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BCB3B3B3-D3DE-4D24-A6AC-0157187988E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCB3B3B3-D3DE-4D24-A6AC-0157187988E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCB3B3B3-D3DE-4D24-A6AC-0157187988E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5367B4F1-E851-4B1D-B1B7-C092561B6D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5367B4F1-E851-4B1D-B1B7-C092561B6D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5367B4F1-E851-4B1D-B1B7-C092561B6D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5367B4F1-E851-4B1D-B1B7-C092561B6D47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
