@@ -8,14 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tests.OrdersServiceReference {
+namespace Tests.OrdersService {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderDTO", Namespace="http://epam.com/OrdersService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderDTO", Namespace="http://epam.com/NorthwindServices")]
     [System.SerializableAttribute()]
     public partial class OrderDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -35,13 +35,13 @@ namespace Tests.OrdersServiceReference {
         private System.Nullable<System.DateTime> OrderDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<Tests.OrdersServiceReference.OrderDetailDTO> OrderDetailsField;
+        private System.Collections.Generic.List<Tests.OrdersService.OrderDetailDTO> OrderDetailsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OrderIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Tests.OrdersServiceReference.OrderState OrderStateField;
+        private Tests.OrdersService.OrderState OrderStateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> RequiredDateField;
@@ -133,7 +133,7 @@ namespace Tests.OrdersServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<Tests.OrdersServiceReference.OrderDetailDTO> OrderDetails {
+        public System.Collections.Generic.List<Tests.OrdersService.OrderDetailDTO> OrderDetails {
             get {
                 return this.OrderDetailsField;
             }
@@ -159,7 +159,7 @@ namespace Tests.OrdersServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Tests.OrdersServiceReference.OrderState OrderState {
+        public Tests.OrdersService.OrderState OrderState {
             get {
                 return this.OrderStateField;
             }
@@ -300,7 +300,7 @@ namespace Tests.OrdersServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderDetailDTO", Namespace="http://epam.com/OrdersService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderDetailDTO", Namespace="http://epam.com/NorthwindServices")]
     [System.SerializableAttribute()]
     public partial class OrderDetailDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -311,13 +311,13 @@ namespace Tests.OrdersServiceReference {
         private float DiscountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Tests.OrdersServiceReference.OrderDTO OrderField;
+        private Tests.OrdersService.OrderDTO OrderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OrderIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Tests.OrdersServiceReference.ProductDTO ProductField;
+        private Tests.OrdersService.ProductDTO ProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ProductIDField;
@@ -352,7 +352,7 @@ namespace Tests.OrdersServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Tests.OrdersServiceReference.OrderDTO Order {
+        public Tests.OrdersService.OrderDTO Order {
             get {
                 return this.OrderField;
             }
@@ -378,7 +378,7 @@ namespace Tests.OrdersServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Tests.OrdersServiceReference.ProductDTO Product {
+        public Tests.OrdersService.ProductDTO Product {
             get {
                 return this.ProductField;
             }
@@ -440,7 +440,7 @@ namespace Tests.OrdersServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderState", Namespace="http://epam.com/OrdersService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderState", Namespace="http://epam.com/NorthwindServices")]
     public enum OrderState : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -455,7 +455,7 @@ namespace Tests.OrdersServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductDTO", Namespace="http://epam.com/OrdersService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductDTO", Namespace="http://epam.com/NorthwindServices")]
     [System.SerializableAttribute()]
     public partial class ProductDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -643,29 +643,29 @@ namespace Tests.OrdersServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/OrdersService", ConfigurationName="OrdersServiceReference.IOrdersService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/NorthwindService", ConfigurationName="OrdersService.IOrdersService")]
     public interface IOrdersService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/IOrdersService/GetAll", ReplyAction="http://epam.com/OrdersService/IOrdersService/GetAllResponse")]
-        System.Collections.Generic.List<Tests.OrdersServiceReference.OrderDTO> GetAll();
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/GetAll", ReplyAction="http://epam.com/NorthwindService/IOrdersService/GetAllResponse")]
+        System.Collections.Generic.List<Tests.OrdersService.OrderDTO> GetAll();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/IOrdersService/GetById", ReplyAction="http://epam.com/OrdersService/IOrdersService/GetByIdResponse")]
-        Tests.OrdersServiceReference.OrderDTO GetById(int orderId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/GetById", ReplyAction="http://epam.com/NorthwindService/IOrdersService/GetByIdResponse")]
+        Tests.OrdersService.OrderDTO GetById(int orderId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/IOrdersService/CreateNewOrder", ReplyAction="http://epam.com/OrdersService/IOrdersService/CreateNewOrderResponse")]
-        Tests.OrdersServiceReference.OrderDTO CreateNewOrder();
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CreateNewOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CreateNewOrderResponse")]
+        Tests.OrdersService.OrderDTO CreateNewOrder();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/OrdersService/IOrdersService/DeleteOrder", ReplyAction="http://epam.com/OrdersService/IOrdersService/DeleteOrderResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/DeleteOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/DeleteOrderResponse")]
         void DeleteOrder(int orderId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IOrdersServiceChannel : Tests.OrdersServiceReference.IOrdersService, System.ServiceModel.IClientChannel {
+    public interface IOrdersServiceChannel : Tests.OrdersService.IOrdersService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class OrdersServiceClient : System.ServiceModel.ClientBase<Tests.OrdersServiceReference.IOrdersService>, Tests.OrdersServiceReference.IOrdersService {
+    public partial class OrdersServiceClient : System.ServiceModel.ClientBase<Tests.OrdersService.IOrdersService>, Tests.OrdersService.IOrdersService {
         
         public OrdersServiceClient() {
         }
@@ -686,20 +686,75 @@ namespace Tests.OrdersServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.Generic.List<Tests.OrdersServiceReference.OrderDTO> GetAll() {
+        public System.Collections.Generic.List<Tests.OrdersService.OrderDTO> GetAll() {
             return base.Channel.GetAll();
         }
         
-        public Tests.OrdersServiceReference.OrderDTO GetById(int orderId) {
+        public Tests.OrdersService.OrderDTO GetById(int orderId) {
             return base.Channel.GetById(orderId);
         }
         
-        public Tests.OrdersServiceReference.OrderDTO CreateNewOrder() {
+        public Tests.OrdersService.OrderDTO CreateNewOrder() {
             return base.Channel.CreateNewOrder();
         }
         
         public void DeleteOrder(int orderId) {
             base.Channel.DeleteOrder(orderId);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epam.com/NorthwindService", ConfigurationName="OrdersService.IOrdersSubscriptionService", CallbackContract=typeof(Tests.OrdersService.IOrdersSubscriptionServiceCallback))]
+    public interface IOrdersSubscriptionService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersSubscriptionService/Subscribe", ReplyAction="http://epam.com/NorthwindService/IOrdersSubscriptionService/SubscribeResponse")]
+        void Subscribe();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersSubscriptionService/Unsubscribe", ReplyAction="http://epam.com/NorthwindService/IOrdersSubscriptionService/UnsubscribeResponse")]
+        void Unsubscribe();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IOrdersSubscriptionServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://epam.com/NorthwindService/IOrdersSubscriptionService/OrderStatusIsChanged")]
+        void OrderStatusIsChanged(int orderId);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IOrdersSubscriptionServiceChannel : Tests.OrdersService.IOrdersSubscriptionService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class OrdersSubscriptionServiceClient : System.ServiceModel.DuplexClientBase<Tests.OrdersService.IOrdersSubscriptionService>, Tests.OrdersService.IOrdersSubscriptionService {
+        
+        public OrdersSubscriptionServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public OrdersSubscriptionServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public OrdersSubscriptionServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public OrdersSubscriptionServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public OrdersSubscriptionServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void Subscribe() {
+            base.Channel.Subscribe();
+        }
+        
+        public void Unsubscribe() {
+            base.Channel.Unsubscribe();
         }
     }
 }

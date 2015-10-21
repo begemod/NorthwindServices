@@ -2,7 +2,7 @@
 {
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Tests.OrdersServiceReference;
+    using Tests.OrdersService;
 
     [TestClass]
     public class RemoteWCFOrdersServiceTests
