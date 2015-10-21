@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServices", "WCFServices\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServicesConsoleHost", "WCFServicesConsoleHost\WCFServicesConsoleHost.csproj", "{BCB3B3B3-D3DE-4D24-A6AC-0157187988E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdersServiceClient", "OrdersServiceClient\OrdersServiceClient.csproj", "{5367B4F1-E851-4B1D-B1B7-C092561B6D47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdersServiceWinFormClient", "OrdersServiceClient\OrdersServiceWinFormClient.csproj", "{5367B4F1-E851-4B1D-B1B7-C092561B6D47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

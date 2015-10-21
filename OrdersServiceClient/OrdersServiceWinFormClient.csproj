@@ -7,7 +7,7 @@
     <ProjectGuid>{5367B4F1-E851-4B1D-B1B7-C092561B6D47}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OrdersServiceClient</RootNamespace>
+    <RootNamespace>OrdersServiceWinFormClient</RootNamespace>
     <AssemblyName>OrdersServiceClient</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -63,6 +63,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

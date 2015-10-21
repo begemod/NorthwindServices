@@ -1,4 +1,4 @@
-﻿namespace OrdersServiceClient
+﻿namespace OrdersServiceWinFormClient
 {
     partial class MainForm
     {

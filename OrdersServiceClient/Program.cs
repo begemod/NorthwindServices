@@ -1,4 +1,4 @@
-﻿namespace OrdersServiceClient
+﻿namespace OrdersServiceWinFormClient
 {
     using System;
     using System.Windows.Forms;
