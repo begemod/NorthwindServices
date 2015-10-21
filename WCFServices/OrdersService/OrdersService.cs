@@ -2,13 +2,16 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.ServiceModel;
+
     using AutoMapper;
     using DAL.DataServices;
     using DAL.Entities;
     using DAL.Infrastructure;
     using WCFServices.DataContracts;
+    using WCFServices.OrdersSubscriptionService;
 
-    public class OrdersService : IOrdersService
+    public class OrdersService : IOrdersService, IOrdersSubscriptionService
     {
         private readonly OrdersDataService ordersDataService;
 
@@ -20,6 +23,8 @@
             this.ConfigureInMapping();
             this.ConfigureOutMapping();
         }
+
+        #region IOrdersService members
 
         public IEnumerable<OrderDTO> GetAll()
         {
@@ -44,6 +49,22 @@
         {
             this.ordersDataService.DeleteOrder(orderId);
         }
+
+        #endregion
+
+        #region IOrdersSubscriptionService members
+
+        public void Subscribe()
+        {
+            var currentSessionId = OperationContext.Current.SessionId;
+        }
+
+        public void Unsubscribe()
+        {
+            
+        }
+
+        #endregion
 
         private void ConfigureInMapping()
         {
