@@ -6,6 +6,7 @@
         {
             const string Sql = @"select
                                     od.OrderID
+                                   ,od.ProductID
                                    ,od.UnitPrice
                                    ,od.Quantity
                                    ,od.Discount

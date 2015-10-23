@@ -1,5 +1,7 @@
 ﻿namespace DAL.QueryObjects
 {
+    using DAL.Entities;
+
     public class OrderQueryObject
     {
         public QueryObject GetAll()
@@ -23,6 +25,100 @@
                                  select @@ROWCOUNT";
 
             return new QueryObject(Sql, new { OrderID = orderId });
+        }
+
+        public QueryObject InsertOrder(Order order)
+        {
+            const string Sql = @"insert into [dbo].[Orders]
+                                       ([CustomerID]
+                                       ,[EmployeeID]
+                                       ,[OrderDate]
+                                       ,[RequiredDate]
+                                       ,[ShippedDate]
+                                       ,[ShipVia]
+                                       ,[Freight]
+                                       ,[ShipName]
+                                       ,[ShipAddress]
+                                       ,[ShipCity]
+                                       ,[ShipRegion]
+                                       ,[ShipPostalCode]
+                                       ,[ShipCountry])
+                                 values
+                                      (@CustomerID,
+                                       @EmployeeID,
+                                       @OrderDate,
+                                       @RequiredDate,
+                                       @ShippedDate,
+                                       @ShipVia,
+                                       @Freight,
+                                       @ShipName,
+                                       @ShipAddress,
+                                       @ShipCity,
+                                       @ShipRegion,
+                                       @ShipPostalCode,
+                                       @ShipCountry);
+                                select scope_identity()";
+
+            var parameters = new
+            {
+                order.CustomerID,
+                order.EmployeeID,
+                order.OrderDate,
+                order.RequiredDate,
+                order.ShippedDate,
+                order.ShipVia,
+                order.Freight,
+                order.ShipName,
+                order.ShipAddress,
+                order.ShipCity,
+                order.ShipRegion,
+                order.ShipPostalCode,
+                order.ShipCountry
+            };
+
+            return new QueryObject(Sql, parameters);
+        }
+
+        public QueryObject UpdateOrder(Order order)
+        {
+            const string Sql = @"update [dbo].[Orders]
+                                   set [CustomerID] = @CustomerID
+                                      ,[EmployeeID] = @EmployeeID
+                                      ,[OrderDate] = @OrderDate
+                                      ,[RequiredDate] = @RequiredDate
+                                      ,[ShippedDate] = @ShippedDate
+                                      ,[ShipVia] = @ShipVia
+                                      ,[Freight] = @Freight
+                                      ,[ShipName] = @ShipName
+                                      ,[ShipAddress] = @ShipAddress
+                                      ,[ShipCity] = @ShipCity
+                                      ,[ShipRegion] = @ShipRegion
+                                      ,[ShipPostalCode] = @ShipPostalCode
+                                      ,[ShipCountry] = @ShipCountry
+                                 where
+                                    OrderID = @OrderID
+
+                                select @@ROWCOUNT";
+
+            var parameters = new
+            {
+                order.CustomerID,
+                order.EmployeeID,
+                order.OrderDate,
+                order.RequiredDate,
+                order.ShippedDate,
+                order.ShipVia,
+                order.Freight,
+                order.ShipName,
+                order.ShipAddress,
+                order.ShipCity,
+                order.ShipRegion,
+                order.ShipPostalCode,
+                order.ShipCountry,
+                order.OrderID
+            };
+
+            return new QueryObject(Sql, parameters);
         }
     }
 }

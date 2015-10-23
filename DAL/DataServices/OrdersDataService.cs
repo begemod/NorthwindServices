@@ -1,5 +1,6 @@
 ﻿namespace DAL.DataServices
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using DAL.Entities;
@@ -64,6 +65,40 @@
 
                     return affectedRows;
                 }
+            }
+        }
+
+        public int InsertOrder(Order order)
+        {
+            using (var connection = this.GetConnection())
+            {
+                var orderQueryObject = new OrderQueryObject();
+
+                var orderId = connection.Query<int>(orderQueryObject.InsertOrder(order)).First();
+
+                return orderId;
+            }
+        }
+
+        public int UpdateOrder(Order order)
+        {
+            if (order == null)
+            {
+                throw new ArgumentNullException("order");
+            }
+
+            if (order.OrderID <= 0)
+            {
+                throw new ArgumentException("OrderID is not valid.");
+            }
+
+            using (var connection = this.GetConnection())
+            {
+                var orderQueryObject = new OrderQueryObject();
+
+                var affectedRows = connection.Query<int>(orderQueryObject.UpdateOrder(order)).First();
+
+                return affectedRows;
             }
         }
     }

@@ -4,7 +4,7 @@ namespace DAL.Entities
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-  public class Order
+    public class Order : ICloneable
     {
         public Order()
         {
@@ -53,5 +53,10 @@ namespace DAL.Entities
         public ICollection<OrderDetail> OrderDetails { get; set; }
 
         public Shipper Shipper { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

@@ -32,5 +32,14 @@
                 Assert.IsNotNull(orderById);
             }
         }
+
+        [TestMethod]
+        public void CreateOrderTest()
+        {
+            using (var client = new OrdersServiceClient())
+            {
+                var newOrder = new OrderDTO();
+            }
+        }
     }
 }

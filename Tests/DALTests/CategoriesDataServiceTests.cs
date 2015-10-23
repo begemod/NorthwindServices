@@ -7,7 +7,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class CategoriesDataTests
+    public class CategoriesDataServiceTests
     {
         private CategoriesDataService categoriesDataService;
 
