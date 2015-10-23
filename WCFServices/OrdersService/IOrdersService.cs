@@ -14,7 +14,7 @@
         OrderDTO GetById(int orderId);
 
         [OperationContract]
-        void DeleteOrder(int orderId);
+        int DeleteOrder(int orderId);
 
         [OperationContract]
         int CreateNewOrder(OrderDTO order);

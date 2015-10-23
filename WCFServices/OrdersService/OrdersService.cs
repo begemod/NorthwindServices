@@ -76,23 +76,26 @@
 
         public void ProcessOrder(OrderDTO order)
         {
-            // set status to InWork
             this.OnOrderStatusChanged(order.OrderId, OrderState.InWork);
         }
 
         public void CloseOrder(OrderDTO order)
         {
-            // set status on Closed
             this.OnOrderStatusChanged(order.OrderId, OrderState.Closed);
         }
 
-        public void DeleteOrder(int orderId)
+        public int DeleteOrder(int orderId)
         {
             try
             {
-                var orderById = this.ordersDataService.GetById(orderId);
+                var orderById = this.GetById(orderId);
 
-                this.ordersDataService.DeleteOrder(orderId);
+                if (orderById.OrderState.Equals(OrderState.Closed))
+                {
+                    throw new FaultException(new FaultReason("The order in Closed state can not be deleted."), new FaultCode("Error"));
+                }
+
+                return this.ordersDataService.DeleteOrder(orderId);
             }
             catch (EntityNotFoundException exception)
             {

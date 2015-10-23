@@ -653,7 +653,7 @@ namespace Tests.OrdersService {
         Tests.OrdersService.OrderDTO GetById(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/DeleteOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/DeleteOrderResponse")]
-        void DeleteOrder(int orderId);
+        int DeleteOrder(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CreateNewOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CreateNewOrderResponse")]
         int CreateNewOrder(Tests.OrdersService.OrderDTO order);
@@ -703,8 +703,8 @@ namespace Tests.OrdersService {
             return base.Channel.GetById(orderId);
         }
         
-        public void DeleteOrder(int orderId) {
-            base.Channel.DeleteOrder(orderId);
+        public int DeleteOrder(int orderId) {
+            return base.Channel.DeleteOrder(orderId);
         }
         
         public int CreateNewOrder(Tests.OrdersService.OrderDTO order) {

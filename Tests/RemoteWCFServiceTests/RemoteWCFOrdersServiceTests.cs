@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
     using System.ServiceModel;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Tests.OrdersService;
 
@@ -51,7 +50,7 @@
         {
             using (var client = new OrdersServiceClient())
             {
-                var newOrder = this.CreateNewOrder();
+                var newOrder = this.GetNewOrder();
                 var orderId = client.CreateNewOrder(newOrder);
 
                 Assert.IsTrue(orderId > 0);
@@ -85,7 +84,46 @@
             }
         }
 
-        private OrderDTO CreateNewOrder()
+        [TestMethod]
+        [ExpectedException(typeof(FaultException))]
+        public void DeleteOrderFaultOnAttemptToDeleteNotExistingOrderTest()
+        {
+            using (var client = new OrdersServiceClient())
+            {
+                client.DeleteOrder(-1);
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException))]
+        public void DeleteOrderFaultOnAttemptToDeleteClosedOrderTest()
+        {
+            using (var client = new OrdersServiceClient())
+            {
+                var order = this.GetExistingOder(dto => dto.OrderState.Equals(OrderState.Closed));
+
+                if (order != null)
+                {
+                    client.DeleteOrder(order.OrderId);
+                }
+            }
+        }
+
+        [TestMethod]
+        public void DeleteOrderTest()
+        {
+            using (var client = new OrdersServiceClient())
+            {
+                var newOrder = this.GetNewOrder();
+                var orderId = client.CreateNewOrder(newOrder);
+
+                var affectedRows = client.DeleteOrder(orderId);
+
+                Assert.AreEqual(affectedRows, 1);
+            }
+        }
+
+        private OrderDTO GetNewOrder()
         {
             var order = this.GetExistingOder();
             order.OrderId = 0;
