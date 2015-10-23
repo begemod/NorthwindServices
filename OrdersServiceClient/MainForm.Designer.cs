@@ -31,6 +31,7 @@
             this.btnSubscribe = new System.Windows.Forms.Button();
             this.btnUnsubscribe = new System.Windows.Forms.Button();
             this.txtMessages = new System.Windows.Forms.TextBox();
+            this.btnChangeOrderStatus = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSubscribe
@@ -63,11 +64,23 @@
             this.txtMessages.Size = new System.Drawing.Size(374, 208);
             this.txtMessages.TabIndex = 2;
             // 
+            // btnChangeOrderStatus
+            // 
+            this.btnChangeOrderStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnChangeOrderStatus.Location = new System.Drawing.Point(122, 226);
+            this.btnChangeOrderStatus.Name = "btnChangeOrderStatus";
+            this.btnChangeOrderStatus.Size = new System.Drawing.Size(142, 23);
+            this.btnChangeOrderStatus.TabIndex = 3;
+            this.btnChangeOrderStatus.Text = "Change Order Status";
+            this.btnChangeOrderStatus.UseVisualStyleBackColor = true;
+            this.btnChangeOrderStatus.Click += new System.EventHandler(this.OnBtnChangeOrderStatusClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 261);
+            this.Controls.Add(this.btnChangeOrderStatus);
             this.Controls.Add(this.txtMessages);
             this.Controls.Add(this.btnUnsubscribe);
             this.Controls.Add(this.btnSubscribe);
@@ -86,6 +99,7 @@
         private System.Windows.Forms.Button btnSubscribe;
         private System.Windows.Forms.Button btnUnsubscribe;
         private System.Windows.Forms.TextBox txtMessages;
+        private System.Windows.Forms.Button btnChangeOrderStatus;
     }
 }
 

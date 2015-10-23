@@ -12,9 +12,9 @@
     public interface IOrdersSubscriptionService
     {
         [OperationContract]
-        void Subscribe();
+        bool Subscribe(string clientIdentifier);
 
         [OperationContract]
-        void Unsubscribe();
+        bool Unsubscribe(string clientIdentifier);
     }
 }

@@ -14,9 +14,18 @@
         OrderDTO GetById(int orderId);
 
         [OperationContract]
+        void DeleteOrder(int orderId);
+
+        [OperationContract]
         OrderDTO CreateNewOrder();
 
         [OperationContract]
-        void DeleteOrder(int orderId);
+        void UpdateOrder(OrderDTO order);
+
+        [OperationContract]
+        void ProcessOrder(OrderDTO order);
+
+        [OperationContract]
+        void CloseOrder(OrderDTO order);
     }
 }
