@@ -662,10 +662,10 @@ namespace Tests.OrdersService {
         void UpdateOrder(Tests.OrdersService.OrderDTO order);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/ProcessOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/ProcessOrderResponse")]
-        void ProcessOrder(Tests.OrdersService.OrderDTO order);
+        void ProcessOrder(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CloseOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CloseOrderResponse")]
-        void CloseOrder(Tests.OrdersService.OrderDTO order);
+        void CloseOrder(int orderId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -715,12 +715,12 @@ namespace Tests.OrdersService {
             base.Channel.UpdateOrder(order);
         }
         
-        public void ProcessOrder(Tests.OrdersService.OrderDTO order) {
-            base.Channel.ProcessOrder(order);
+        public void ProcessOrder(int orderId) {
+            base.Channel.ProcessOrder(orderId);
         }
         
-        public void CloseOrder(Tests.OrdersService.OrderDTO order) {
-            base.Channel.CloseOrder(order);
+        public void CloseOrder(int orderId) {
+            base.Channel.CloseOrder(orderId);
         }
     }
     

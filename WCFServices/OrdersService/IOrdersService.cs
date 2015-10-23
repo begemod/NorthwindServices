@@ -23,9 +23,9 @@
         void UpdateOrder(OrderDTO order);
 
         [OperationContract]
-        void ProcessOrder(OrderDTO order);
+        void ProcessOrder(int orderId);
 
         [OperationContract]
-        void CloseOrder(OrderDTO order);
+        void CloseOrder(int orderId);
     }
 }

@@ -66,22 +66,56 @@
                 throw new FaultException(new FaultReason("Order should be defined."), new FaultCode("Error"));
             }
 
-            if (!order.OrderState.Equals(OrderState.New))
+            try
             {
-                throw new FaultException(new FaultReason("Only Order in New status can be modified."), new FaultCode("Error"));
+                var orderBO = Mapper.Map<OrderDTO, Order>(order);
+
+                var sourceOrder = this.ordersDataService.GetById(order.OrderId);
+
+                if (!Mapper.Map<Order, OrderDTO>(sourceOrder).OrderState.Equals(OrderState.New))
+                {
+                    throw new FaultException(new FaultReason("Only Order in New status can be modified."), new FaultCode("Error"));
+                }
+
+                // fields OrderDate and ShippedDate can not be modified directly
+                // so restore these fields from source object
+                orderBO.OrderDate = sourceOrder.OrderDate;
+                orderBO.ShippedDate = sourceOrder.ShippedDate;
+
+                this.ordersDataService.UpdateOrder(orderBO);
             }
-
-            this.ordersDataService.UpdateOrder(Mapper.Map<OrderDTO, Order>(order));
+            catch (EntityNotFoundException exception)
+            {
+                throw new FaultException(new FaultReason(exception.Message), new FaultCode("Error"));
+            }
         }
 
-        public void ProcessOrder(OrderDTO order)
+        public void ProcessOrder(int orderId)
         {
-            this.OnOrderStatusChanged(order.OrderId, OrderState.InWork);
+            try
+            {
+                var sourceOrder = this.ordersDataService.GetById(orderId);
+
+                if (!Mapper.Map<Order, OrderDTO>(sourceOrder).OrderState.Equals(OrderState.New))
+                {
+                    throw new FaultException(new FaultReason("Only Order in New status can be processed to InWork state."), new FaultCode("Error"));
+                }
+
+                sourceOrder.OrderDate = DateTime.Now;
+
+                this.ordersDataService.UpdateOrder(sourceOrder);
+
+                this.OnOrderStatusChanged(orderId, OrderState.InWork);
+            }
+            catch (EntityNotFoundException exception)
+            {
+                throw new FaultException(new FaultReason(exception.Message), new FaultCode("Error"));
+            }
         }
 
-        public void CloseOrder(OrderDTO order)
+        public void CloseOrder(int orderId)
         {
-            this.OnOrderStatusChanged(order.OrderId, OrderState.Closed);
+            this.OnOrderStatusChanged(orderId, OrderState.Closed);
         }
 
         public int DeleteOrder(int orderId)
