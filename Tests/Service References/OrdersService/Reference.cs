@@ -652,11 +652,20 @@ namespace Tests.OrdersService {
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/GetById", ReplyAction="http://epam.com/NorthwindService/IOrdersService/GetByIdResponse")]
         Tests.OrdersService.OrderDTO GetById(int orderId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CreateNewOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CreateNewOrderResponse")]
-        Tests.OrdersService.OrderDTO CreateNewOrder();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/DeleteOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/DeleteOrderResponse")]
         void DeleteOrder(int orderId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CreateNewOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CreateNewOrderResponse")]
+        int CreateNewOrder(Tests.OrdersService.OrderDTO order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/UpdateOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/UpdateOrderResponse")]
+        void UpdateOrder(Tests.OrdersService.OrderDTO order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/ProcessOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/ProcessOrderResponse")]
+        void ProcessOrder(Tests.OrdersService.OrderDTO order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CloseOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CloseOrderResponse")]
+        void CloseOrder(Tests.OrdersService.OrderDTO order);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -694,12 +703,24 @@ namespace Tests.OrdersService {
             return base.Channel.GetById(orderId);
         }
         
-        public Tests.OrdersService.OrderDTO CreateNewOrder() {
-            return base.Channel.CreateNewOrder();
-        }
-        
         public void DeleteOrder(int orderId) {
             base.Channel.DeleteOrder(orderId);
+        }
+        
+        public int CreateNewOrder(Tests.OrdersService.OrderDTO order) {
+            return base.Channel.CreateNewOrder(order);
+        }
+        
+        public void UpdateOrder(Tests.OrdersService.OrderDTO order) {
+            base.Channel.UpdateOrder(order);
+        }
+        
+        public void ProcessOrder(Tests.OrdersService.OrderDTO order) {
+            base.Channel.ProcessOrder(order);
+        }
+        
+        public void CloseOrder(Tests.OrdersService.OrderDTO order) {
+            base.Channel.CloseOrder(order);
         }
     }
     
@@ -708,10 +729,10 @@ namespace Tests.OrdersService {
     public interface IOrdersSubscriptionService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersSubscriptionService/Subscribe", ReplyAction="http://epam.com/NorthwindService/IOrdersSubscriptionService/SubscribeResponse")]
-        void Subscribe();
+        bool Subscribe(string clientIdentifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersSubscriptionService/Unsubscribe", ReplyAction="http://epam.com/NorthwindService/IOrdersSubscriptionService/UnsubscribeResponse")]
-        void Unsubscribe();
+        bool Unsubscribe(string clientIdentifier);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -749,12 +770,12 @@ namespace Tests.OrdersService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void Subscribe() {
-            base.Channel.Subscribe();
+        public bool Subscribe(string clientIdentifier) {
+            return base.Channel.Subscribe(clientIdentifier);
         }
         
-        public void Unsubscribe() {
-            base.Channel.Unsubscribe();
+        public bool Unsubscribe(string clientIdentifier) {
+            return base.Channel.Unsubscribe(clientIdentifier);
         }
     }
 }

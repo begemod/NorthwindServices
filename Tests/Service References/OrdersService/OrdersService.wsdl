@@ -240,6 +240,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <soap:operation soapAction="http://epam.com/NorthwindService/IOrdersService/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreateNewOrder">
       <soap:operation soapAction="http://epam.com/NorthwindService/IOrdersService/CreateNewOrder" style="document" />
       <wsdl:input>
@@ -249,8 +258,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteOrder">
-      <soap:operation soapAction="http://epam.com/NorthwindService/IOrdersService/DeleteOrder" style="document" />
+    <wsdl:operation name="UpdateOrder">
+      <soap:operation soapAction="http://epam.com/NorthwindService/IOrdersService/UpdateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOrder">
+      <soap:operation soapAction="http://epam.com/NorthwindService/IOrdersService/ProcessOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseOrder">
+      <soap:operation soapAction="http://epam.com/NorthwindService/IOrdersService/CloseOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

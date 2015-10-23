@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cf50350f-79ee-403d-b6cf-3b7120c97ea9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="60f813fd-ea77-446b-b342-3e77a61b1ac3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -23,12 +23,12 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/OrdersService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="OrdersService.disco" MetadataType="Disco" ID="b2810aaa-66bf-4bd6-81f7-18a9159469c9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?disco" />
-    <MetadataFile FileName="OrdersService.xsd" MetadataType="Schema" ID="2688a6b7-ec85-42e7-95ea-69e51a5d27f9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?xsd=xsd2" />
-    <MetadataFile FileName="OrdersService1.xsd" MetadataType="Schema" ID="7cc738d0-4fb0-4a79-bad5-8e253ebaf2a7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?xsd=xsd1" />
-    <MetadataFile FileName="OrdersService2.xsd" MetadataType="Schema" ID="19382c0a-19c4-40bd-a036-b0d01ebeca71" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?xsd=xsd0" />
-    <MetadataFile FileName="OrdersService.wsdl" MetadataType="Wsdl" ID="551d2a69-7a44-4603-804f-2d93c4dcf940" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?wsdl" />
-    <MetadataFile FileName="OrdersService1.wsdl" MetadataType="Wsdl" ID="11efed28-b4ce-4ca9-a8ca-7d94398b239a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?wsdl=wsdl0" />
+    <MetadataFile FileName="OrdersService.disco" MetadataType="Disco" ID="3b510cee-d9ba-46b5-b402-c6c79f0d43f1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?disco" />
+    <MetadataFile FileName="OrdersService.xsd" MetadataType="Schema" ID="36e1567c-a5ce-4d6f-8fd0-2fabf5e723fc" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?xsd=xsd2" />
+    <MetadataFile FileName="OrdersService1.xsd" MetadataType="Schema" ID="5908c074-3f7a-4f82-8b3e-ed92e6afd4b2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?xsd=xsd1" />
+    <MetadataFile FileName="OrdersService2.xsd" MetadataType="Schema" ID="8596de6e-8610-4851-87e1-098a1bf7ab6c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?xsd=xsd0" />
+    <MetadataFile FileName="OrdersService.wsdl" MetadataType="Wsdl" ID="3762c95f-b330-428d-b3e6-f6ed4bc9752f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?wsdl" />
+    <MetadataFile FileName="OrdersService1.wsdl" MetadataType="Wsdl" ID="06f294ce-ce3b-41f1-b511-f0c890133dea" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/OrdersService?wsdl=wsdl0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

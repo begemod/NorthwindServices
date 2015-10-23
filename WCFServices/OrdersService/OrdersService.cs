@@ -44,14 +44,34 @@
             return result;
         }
 
-        public OrderDTO CreateNewOrder()
+        public int CreateNewOrder(OrderDTO order)
         {
-            return new OrderDTO();
+            if (order == null)
+            {
+                throw new FaultException(new FaultReason("Order should be defined."), new FaultCode("Error"));
+            }
+
+            order.OrderDate = null;
+            order.ShippedDate = null;
+
+            var orderId = this.ordersDataService.InsertOrder(Mapper.Map<OrderDTO, Order>(order));
+
+            return orderId;
         }
 
         public void UpdateOrder(OrderDTO order)
         {
-            // update order only in New status
+            if (order == null)
+            {
+                throw new FaultException(new FaultReason("Order should be defined."), new FaultCode("Error"));
+            }
+
+            if (!order.OrderState.Equals(OrderState.New))
+            {
+                throw new FaultException(new FaultReason("Only Order in New status can be modified."), new FaultCode("Error"));
+            }
+
+            this.ordersDataService.UpdateOrder(Mapper.Map<OrderDTO, Order>(order));
         }
 
         public void ProcessOrder(OrderDTO order)
