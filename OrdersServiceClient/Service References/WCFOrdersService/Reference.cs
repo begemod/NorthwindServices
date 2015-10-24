@@ -659,16 +659,16 @@ namespace OrdersServiceWinFormClient.WCFOrdersService {
         System.Threading.Tasks.Task<OrdersServiceWinFormClient.WCFOrdersService.OrderDTO> GetByIdAsync(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/DeleteOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/DeleteOrderResponse")]
-        void DeleteOrder(int orderId);
+        int DeleteOrder(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/DeleteOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/DeleteOrderResponse")]
-        System.Threading.Tasks.Task DeleteOrderAsync(int orderId);
+        System.Threading.Tasks.Task<int> DeleteOrderAsync(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CreateNewOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CreateNewOrderResponse")]
-        OrdersServiceWinFormClient.WCFOrdersService.OrderDTO CreateNewOrder();
+        int CreateNewOrder(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CreateNewOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CreateNewOrderResponse")]
-        System.Threading.Tasks.Task<OrdersServiceWinFormClient.WCFOrdersService.OrderDTO> CreateNewOrderAsync();
+        System.Threading.Tasks.Task<int> CreateNewOrderAsync(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/UpdateOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/UpdateOrderResponse")]
         void UpdateOrder(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order);
@@ -677,16 +677,16 @@ namespace OrdersServiceWinFormClient.WCFOrdersService {
         System.Threading.Tasks.Task UpdateOrderAsync(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/ProcessOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/ProcessOrderResponse")]
-        void ProcessOrder(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order);
+        void ProcessOrder(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/ProcessOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/ProcessOrderResponse")]
-        System.Threading.Tasks.Task ProcessOrderAsync(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order);
+        System.Threading.Tasks.Task ProcessOrderAsync(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CloseOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CloseOrderResponse")]
-        void CloseOrder(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order);
+        void CloseOrder(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://epam.com/NorthwindService/IOrdersService/CloseOrder", ReplyAction="http://epam.com/NorthwindService/IOrdersService/CloseOrderResponse")]
-        System.Threading.Tasks.Task CloseOrderAsync(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order);
+        System.Threading.Tasks.Task CloseOrderAsync(int orderId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -732,20 +732,20 @@ namespace OrdersServiceWinFormClient.WCFOrdersService {
             return base.Channel.GetByIdAsync(orderId);
         }
         
-        public void DeleteOrder(int orderId) {
-            base.Channel.DeleteOrder(orderId);
+        public int DeleteOrder(int orderId) {
+            return base.Channel.DeleteOrder(orderId);
         }
         
-        public System.Threading.Tasks.Task DeleteOrderAsync(int orderId) {
+        public System.Threading.Tasks.Task<int> DeleteOrderAsync(int orderId) {
             return base.Channel.DeleteOrderAsync(orderId);
         }
         
-        public OrdersServiceWinFormClient.WCFOrdersService.OrderDTO CreateNewOrder() {
-            return base.Channel.CreateNewOrder();
+        public int CreateNewOrder(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order) {
+            return base.Channel.CreateNewOrder(order);
         }
         
-        public System.Threading.Tasks.Task<OrdersServiceWinFormClient.WCFOrdersService.OrderDTO> CreateNewOrderAsync() {
-            return base.Channel.CreateNewOrderAsync();
+        public System.Threading.Tasks.Task<int> CreateNewOrderAsync(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order) {
+            return base.Channel.CreateNewOrderAsync(order);
         }
         
         public void UpdateOrder(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order) {
@@ -756,20 +756,20 @@ namespace OrdersServiceWinFormClient.WCFOrdersService {
             return base.Channel.UpdateOrderAsync(order);
         }
         
-        public void ProcessOrder(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order) {
-            base.Channel.ProcessOrder(order);
+        public void ProcessOrder(int orderId) {
+            base.Channel.ProcessOrder(orderId);
         }
         
-        public System.Threading.Tasks.Task ProcessOrderAsync(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order) {
-            return base.Channel.ProcessOrderAsync(order);
+        public System.Threading.Tasks.Task ProcessOrderAsync(int orderId) {
+            return base.Channel.ProcessOrderAsync(orderId);
         }
         
-        public void CloseOrder(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order) {
-            base.Channel.CloseOrder(order);
+        public void CloseOrder(int orderId) {
+            base.Channel.CloseOrder(orderId);
         }
         
-        public System.Threading.Tasks.Task CloseOrderAsync(OrdersServiceWinFormClient.WCFOrdersService.OrderDTO order) {
-            return base.Channel.CloseOrderAsync(order);
+        public System.Threading.Tasks.Task CloseOrderAsync(int orderId) {
+            return base.Channel.CloseOrderAsync(orderId);
         }
     }
     

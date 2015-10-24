@@ -36,18 +36,22 @@
   </xs:element>
   <xs:element name="DeleteOrderResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteOrderResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateNewOrder">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q3="http://epam.com/NorthwindServices" minOccurs="0" name="order" nillable="true" type="q3:OrderDTO" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateNewOrderResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://epam.com/NorthwindServices" minOccurs="0" name="CreateNewOrderResult" nillable="true" type="q3:OrderDTO" />
+        <xs:element minOccurs="0" name="CreateNewOrderResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -66,7 +70,7 @@
   <xs:element name="ProcessOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://epam.com/NorthwindServices" minOccurs="0" name="order" nillable="true" type="q5:OrderDTO" />
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -78,7 +82,7 @@
   <xs:element name="CloseOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://epam.com/NorthwindServices" minOccurs="0" name="order" nillable="true" type="q6:OrderDTO" />
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

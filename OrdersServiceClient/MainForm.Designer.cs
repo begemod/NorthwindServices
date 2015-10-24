@@ -61,17 +61,19 @@
             this.txtMessages.Location = new System.Drawing.Point(6, 12);
             this.txtMessages.Multiline = true;
             this.txtMessages.Name = "txtMessages";
+            this.txtMessages.ReadOnly = true;
+            this.txtMessages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMessages.Size = new System.Drawing.Size(374, 208);
             this.txtMessages.TabIndex = 2;
             // 
             // btnChangeOrderStatus
             // 
             this.btnChangeOrderStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnChangeOrderStatus.Location = new System.Drawing.Point(122, 226);
+            this.btnChangeOrderStatus.Location = new System.Drawing.Point(112, 226);
             this.btnChangeOrderStatus.Name = "btnChangeOrderStatus";
-            this.btnChangeOrderStatus.Size = new System.Drawing.Size(142, 23);
+            this.btnChangeOrderStatus.Size = new System.Drawing.Size(168, 23);
             this.btnChangeOrderStatus.TabIndex = 3;
-            this.btnChangeOrderStatus.Text = "Change Order Status";
+            this.btnChangeOrderStatus.Text = "Change Order StatusTest";
             this.btnChangeOrderStatus.UseVisualStyleBackColor = true;
             this.btnChangeOrderStatus.Click += new System.EventHandler(this.OnBtnChangeOrderStatusClick);
             // 
