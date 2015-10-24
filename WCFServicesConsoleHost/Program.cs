@@ -26,8 +26,10 @@
                 host.Open();
 
                 Console.ReadLine();
-                Console.WriteLine("Service closed");
+                Console.WriteLine("Service is closing...");
             }
+
+            Console.WriteLine("Service is closed.");
         }
 
         private static ServiceHostType GetServiceHostType(string[] args)

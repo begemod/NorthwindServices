@@ -124,6 +124,18 @@
         }
 
         [TestMethod]
+        [ExpectedException(typeof(FaultException))]
+        public void ProcessOrderFaultTestP()
+        {
+            using (var client = new OrdersServiceClient())
+            {
+                var order = this.GetExistingOder(dto => dto.OrderState.Equals(OrderState.InWork) || dto.OrderState.Equals(OrderState.Closed));
+
+                client.ProcessOrder(order.OrderId);
+            }
+        }
+
+        [TestMethod]
         public void ProcessOrderTest()
         {
             using (var client = new OrdersServiceClient())
@@ -139,10 +151,41 @@
             }
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(FaultException))]
+        public void CloseOrderFaultTest()
+        {
+            using (var client = new OrdersServiceClient())
+            {
+                var order = this.GetExistingOder(dto => dto.OrderState.Equals(OrderState.New) || dto.OrderState.Equals(OrderState.Closed));
+
+                client.CloseOrder(order.OrderId);
+            }
+        }
+
+        [TestMethod]
+        public void CloseOrderTest()
+        {
+            using (var client = new OrdersServiceClient())
+            {
+                var newOrder = this.CreateNewOrder();
+                var newOrderId = client.CreateNewOrder(newOrder);
+
+                client.ProcessOrder(newOrderId);
+
+                client.CloseOrder(newOrderId);
+
+                var newOrderFromDB = client.GetById(newOrderId);
+
+                Assert.IsTrue(newOrderFromDB.OrderState.Equals(OrderState.Closed));
+            }
+        }
+
         private OrderDTO CreateNewOrder()
         {
             var order = this.GetExistingOder();
             order.OrderId = 0;
+            order.RequiredDate = DateTime.Now.AddDays(1);
 
             return order;
         }

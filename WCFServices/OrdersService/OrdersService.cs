@@ -101,11 +101,19 @@
                     throw new FaultException(new FaultReason("Only Order in New status can be processed to InWork state."), new FaultCode("Error"));
                 }
 
-                sourceOrder.OrderDate = DateTime.Now;
+                var orderDate = DateTime.Now;
+
+                if (sourceOrder.RequiredDate < orderDate)
+                {
+                    throw new FaultException(new FaultReason("Order's Required Date is expired."), new FaultCode("Error"));
+                }
+
+                sourceOrder.OrderDate = orderDate;
 
                 this.ordersDataService.UpdateOrder(sourceOrder);
 
-                this.OnOrderStatusChanged(orderId, OrderState.InWork);
+                // raise on order status changed event
+                this.OnOrderStatusChanged(orderId);
             }
             catch (EntityNotFoundException exception)
             {
@@ -115,7 +123,26 @@
 
         public void CloseOrder(int orderId)
         {
-            this.OnOrderStatusChanged(orderId, OrderState.Closed);
+            try
+            {
+                var sourceOrder = this.ordersDataService.GetById(orderId);
+
+                if (!Mapper.Map<Order, OrderDTO>(sourceOrder).OrderState.Equals(OrderState.InWork))
+                {
+                    throw new FaultException(new FaultReason("Only Order in InWork status can be closed."), new FaultCode("Error"));
+                }
+
+                sourceOrder.ShippedDate = DateTime.Now;
+
+                this.ordersDataService.UpdateOrder(sourceOrder);
+
+                // raise on order status changed event
+                this.OnOrderStatusChanged(orderId);
+            }
+            catch (EntityNotFoundException exception)
+            {
+                throw new FaultException(new FaultReason(exception.Message), new FaultCode("Error"));
+            }
         }
 
         public int DeleteOrder(int orderId)
@@ -175,7 +202,7 @@
 
         #endregion
 
-        private void OnOrderStatusChanged(int orderId, OrderState previousState)
+        private void OnOrderStatusChanged(int orderId)
         {
             Task.Factory.StartNew(() =>
                 {
